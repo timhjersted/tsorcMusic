@@ -419,7 +419,7 @@ namespace tsorcMusic
                     music = ((Mod)this).GetSoundSlot((SoundType)51, "Sounds/Music/Boss2");
                     priority = (MusicPriority)6;
                 }
-                else if (NPC.AnyNPCs(125)) // || (NPC.AnyNPCs(126)) // The Twins
+                else if (NPC.AnyNPCs(125) || NPC.AnyNPCs(126)) // The Twins
                 {
                     music = ((Mod)this).GetSoundSlot((SoundType)51, "Sounds/Music/Boss1");
                     priority = (MusicPriority)6;
@@ -472,7 +472,7 @@ namespace tsorcMusic
                     //}
                     if (NPC.AnyNPCs(tsorcRevamp.NPCType("Witchking")))
                     {
-                        music = ((Mod)this).GetSoundSlot((SoundType)51, "Sounds/Music/Boss5"); 
+                        music = ((Mod)this).GetSoundSlot((SoundType)51, "Sounds/Music/Boss3"); 
                          priority = (MusicPriority)5;
                     }
                     if (NPC.AnyNPCs(tsorcRevamp.NPCType("Blight")))
@@ -480,7 +480,7 @@ namespace tsorcMusic
                         music = ((Mod)this).GetSoundSlot((SoundType)51, "Sounds/Music/Pillars");
                         priority = (MusicPriority)7;
                     }
-                    if (NPC.AnyNPCs(tsorcRevamp.NPCType("WyvernMage")))
+                    if (NPC.AnyNPCs(tsorcRevamp.NPCType("WyvernMage")) || NPC.AnyNPCs(tsorcRevamp.NPCType("MechaDragonHead")))
                     {
                         music = ((Mod)this).GetSoundSlot((SoundType)51, "Sounds/Music/Boss2");
                         priority = (MusicPriority)7;
@@ -514,6 +514,41 @@ namespace tsorcMusic
                     if (NPC.AnyNPCs(tsorcRevamp.NPCType("Chaos")))
                     {
                         music = ((Mod)this).GetSoundSlot((SoundType)51, "Sounds/Music/Pillars");
+                        priority = (MusicPriority)7;
+                    }
+                    if (NPC.AnyNPCs(tsorcRevamp.NPCType("DarkCloud"))) 
+                    {
+                        music = ((Mod)this).GetSoundSlot((SoundType)51, "Sounds/Music/Boss1");
+                        priority = (MusicPriority)7;
+                    }
+                    if (NPC.AnyNPCs(tsorcRevamp.NPCType("Death")))
+                    {
+                        music = ((Mod)this).GetSoundSlot((SoundType)51, "Sounds/Music/Boss6");
+                        priority = (MusicPriority)7;
+                    }
+                    if (NPC.AnyNPCs(tsorcRevamp.NPCType("WyvernMageShadow")) || NPC.AnyNPCs(tsorcRevamp.NPCType("GhostDragonHead")))
+                    {
+                        music = ((Mod)this).GetSoundSlot((SoundType)51, "Sounds/Music/Boss4");
+                        priority = (MusicPriority)7;
+                    }
+                    if (NPC.AnyNPCs(tsorcRevamp.NPCType("HellkiteDragonHead")))
+                    {
+                        music = ((Mod)this).GetSoundSlot((SoundType)51, "Sounds/Music/Boss2");
+                        priority = (MusicPriority)7;
+                    }
+                    if (NPC.AnyNPCs(tsorcRevamp.NPCType("SeathTheScalelessHead")))
+                    {
+                        music = ((Mod)this).GetSoundSlot((SoundType)51, "Sounds/Music/Boss5");
+                        priority = (MusicPriority)7;
+                    }
+                    if (NPC.AnyNPCs(tsorcRevamp.NPCType("AbysmalOolacileSorcerer")))
+                    {
+                        music = ((Mod)this).GetSoundSlot((SoundType)51, "Sounds/Music/Boss3");
+                        priority = (MusicPriority)7;
+                    }
+                    if (NPC.AnyNPCs(tsorcRevamp.NPCType("Gwyn")))
+                    {
+                        music = ((Mod)this).GetSoundSlot((SoundType)51, "Sounds/Music/Boss5");
                         priority = (MusicPriority)7;
                     }
                     //Attraidies 4 phases
