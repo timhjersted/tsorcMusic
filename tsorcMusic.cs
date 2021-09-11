@@ -24,8 +24,8 @@ namespace tsorcMusic
             if (!Main.gameMenu)
             {
 
-            // Biomes
-            if (Main.player[Main.myPlayer].active && Main.player[Main.myPlayer].ZoneOverworldHeight && Main.dayTime && !Main.player[Main.myPlayer].ZoneDesert)
+                // Biomes
+                if (Main.player[Main.myPlayer].active && Main.player[Main.myPlayer].ZoneOverworldHeight && Main.dayTime && !Main.player[Main.myPlayer].ZoneDesert)
                 {
                     music = ((Mod)this).GetSoundSlot((SoundType)51, "Sounds/Music/OverworldDay");
                     priority = (MusicPriority)2;
@@ -330,7 +330,7 @@ namespace tsorcMusic
                     music = ((Mod)this).GetSoundSlot((SoundType)51, "Sounds/Music/Pillars");
                     priority = (MusicPriority)7;
                 }
-                
+
                 // Special Areas
 
                 if (Main.tile[(int)(Main.LocalPlayer.Center.X / 16f), (int)(Main.LocalPlayer.Center.Y / 16f)].wall == WallID.LihzahrdBrickUnsafe && !NPC.AnyNPCs(245))
@@ -419,11 +419,11 @@ namespace tsorcMusic
                     music = ((Mod)this).GetSoundSlot((SoundType)51, "Sounds/Music/Boss2");
                     priority = (MusicPriority)6;
                 }
-                else if (NPC.AnyNPCs(125) || NPC.AnyNPCs(126)) // The Twins
-                {
-                    music = ((Mod)this).GetSoundSlot((SoundType)51, "Sounds/Music/Boss1");
-                    priority = (MusicPriority)6;
-                }
+                //else if (NPC.AnyNPCs(125) || NPC.AnyNPCs(126)) // The Twins
+                //{
+                //    music = ((Mod)this).GetSoundSlot((SoundType)51, "Sounds/Music/Boss1");
+                //    priority = (MusicPriority)6;
+                //}
                 else if (NPC.AnyNPCs(127)) // Skeletron Prime
                 {
                     music = ((Mod)this).GetSoundSlot((SoundType)51, "Sounds/Music/Boss6");
@@ -435,7 +435,7 @@ namespace tsorcMusic
                     music = ((Mod)this).GetSoundSlot((SoundType)51, "Sounds/Music/Boss5");
                     priority = (MusicPriority)7;
                 }
-            
+
                 // Red Cloud Boss Music
                 Mod tsorcRevamp = ModLoader.GetMod("tsorcRevamp");
                 if (tsorcRevamp != null)
@@ -465,15 +465,10 @@ namespace tsorcMusic
                         music = ((Mod)this).GetSoundSlot((SoundType)51, "Sounds/Music/Boss6");
                         priority = (MusicPriority)7;
                     }
-                    //if (NPC.AnyNPCs(tsorcRevamp.NPCType("Artorias")) && NPC.AnyNPCs(tsorcRevamp.NPCType("Witchking")))
-                    //{
-                    //    music = ((Mod)this).GetSoundSlot((SoundType)51, "Sounds/Music/Boss5");
-                    //    priority = (MusicPriority)7;
-                    //}
                     if (NPC.AnyNPCs(tsorcRevamp.NPCType("Witchking")))
                     {
-                        music = ((Mod)this).GetSoundSlot((SoundType)51, "Sounds/Music/Boss3"); 
-                         priority = (MusicPriority)5;
+                        music = ((Mod)this).GetSoundSlot((SoundType)51, "Sounds/Music/Boss3");
+                        priority = (MusicPriority)5;
                     }
                     if (NPC.AnyNPCs(tsorcRevamp.NPCType("Blight")))
                     {
@@ -516,7 +511,7 @@ namespace tsorcMusic
                         music = ((Mod)this).GetSoundSlot((SoundType)51, "Sounds/Music/Pillars");
                         priority = (MusicPriority)7;
                     }
-                    if (NPC.AnyNPCs(tsorcRevamp.NPCType("DarkCloud"))) 
+                    if (NPC.AnyNPCs(tsorcRevamp.NPCType("DarkCloud")))
                     {
                         music = ((Mod)this).GetSoundSlot((SoundType)51, "Sounds/Music/Boss1");
                         priority = (MusicPriority)7;
@@ -556,31 +551,31 @@ namespace tsorcMusic
                     {
                         music = ((Mod)this).GetSoundSlot((SoundType)51, "Sounds/Music/Boss5");
                         priority = (MusicPriority)7;
-                    } 
-                    if (NPC.AnyNPCs(tsorcRevamp.NPCType("DarkDragonMask"))) //phase 2
-
-                        music = ((Mod)this).GetSoundSlot((SoundType)51, "Sounds/Music/Boss5");
-                        priority = (MusicPriority)7;
                     }
-                    if (NPC.AnyNPCs(tsorcRevamp.NPCType("Okiku"))) //phase 3
+                    else if (NPC.AnyNPCs(tsorcRevamp.NPCType("DarkDragonMask"))) //phase 2
                     {
                         music = ((Mod)this).GetSoundSlot((SoundType)51, "Sounds/Music/Boss5");
                         priority = (MusicPriority)7;
                     }
-                    if (NPC.AnyNPCs(tsorcRevamp.NPCType("Attraidies"))) //phase 4
+                    else if (NPC.AnyNPCs(tsorcRevamp.NPCType("Okiku"))) //phase 3
+                    {
+                        music = ((Mod)this).GetSoundSlot((SoundType)51, "Sounds/Music/Boss5");
+                        priority = (MusicPriority)7;
+                    }
+                    else if (NPC.AnyNPCs(tsorcRevamp.NPCType("Attraidies"))) //phase 4
                     {
                         music = ((Mod)this).GetSoundSlot((SoundType)51, "Sounds/Music/Boss5");
                         priority = (MusicPriority)7;
                     }
                 }
-            
-            // Events
-            else if (Main.bloodMoon && Main.player[Main.myPlayer].ZoneOverworldHeight) // Blood Moon
+
+                // Events
+                if (Main.bloodMoon && Main.player[Main.myPlayer].ZoneOverworldHeight) // Blood Moon
                 {
                     music = ((Mod)this).GetSoundSlot((SoundType)51, "Sounds/Music/Pillars");
                     priority = (MusicPriority)5;
                 }
-                else if ((Main.invasionType == 1 && NPC.AnyNPCs(26)) || (Main.invasionType == 1 && NPC.AnyNPCs(27)) || (Main.invasionType == 1 && NPC.AnyNPCs(28)) || (Main.invasionType == 1 && NPC.AnyNPCs(29)) || (Main.invasionType == 1 && NPC.AnyNPCs(111)) || (Main.invasionType == 1 && NPC.AnyNPCs(471)))
+                if ((Main.invasionType == 1 && NPC.AnyNPCs(26)) || (Main.invasionType == 1 && NPC.AnyNPCs(27)) || (Main.invasionType == 1 && NPC.AnyNPCs(28)) || (Main.invasionType == 1 && NPC.AnyNPCs(29)) || (Main.invasionType == 1 && NPC.AnyNPCs(111)) || (Main.invasionType == 1 && NPC.AnyNPCs(471)))
                 // Goblin Invasion
                 {
                     music = ((Mod)this).GetSoundSlot((SoundType)51, "Sounds/Music/Boss1");
@@ -603,3 +598,4 @@ namespace tsorcMusic
             }
         }
     }
+}
