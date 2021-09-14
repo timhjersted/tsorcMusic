@@ -433,7 +433,7 @@ namespace tsorcMusic
                 {
                     //Main.NewText("the thing is playing yes");
                     music = ((Mod)this).GetSoundSlot((SoundType)51, "Sounds/Music/Boss5");
-                    priority = (MusicPriority)7;
+                    priority = (MusicPriority)8;
                 }
 
                 // Red Cloud Boss Music
