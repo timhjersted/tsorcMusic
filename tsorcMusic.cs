@@ -575,6 +575,11 @@ namespace tsorcMusic
                     music = ((Mod)this).GetSoundSlot((SoundType)51, "Sounds/Music/Pillars");
                     priority = (MusicPriority)5;
                 }
+                if (Main.eclipse && Main.dayTime && Main.player[Main.myPlayer].ZoneOverworldHeight) // Eclipse
+                {
+                    music = ((Mod)this).GetSoundSlot((SoundType)51, "Sounds/Music/Space");
+                    priority = (MusicPriority)5;
+                }
                 if ((Main.invasionType == 1 && NPC.AnyNPCs(26)) || (Main.invasionType == 1 && NPC.AnyNPCs(27)) || (Main.invasionType == 1 && NPC.AnyNPCs(28)) || (Main.invasionType == 1 && NPC.AnyNPCs(29)) || (Main.invasionType == 1 && NPC.AnyNPCs(111)) || (Main.invasionType == 1 && NPC.AnyNPCs(471)))
                 // Goblin Invasion
                 {
