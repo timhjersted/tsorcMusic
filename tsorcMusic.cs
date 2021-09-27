@@ -449,10 +449,10 @@ namespace tsorcMusic
                     priority = (MusicPriority)5;
                 }
                 // Goblin Invasion
-                if ((Main.invasionType == 1 && NPC.AnyNPCs(26)) || (Main.invasionType == 1 && NPC.AnyNPCs(27)) || (Main.invasionType == 1 && NPC.AnyNPCs(28)) || (Main.invasionType == 1 && NPC.AnyNPCs(29)) || (Main.invasionType == 1 && NPC.AnyNPCs(111)) || (Main.invasionType == 1 && NPC.AnyNPCs(471)))
+                if (NPC.AnyNPCs(26) || NPC.AnyNPCs(27) || NPC.AnyNPCs(28) || NPC.AnyNPCs(29) || NPC.AnyNPCs(111) || NPC.AnyNPCs(471))
                 {
                     music = ((Mod)this).GetSoundSlot((SoundType)51, "Sounds/Music/Boss1");
-                    priority = (MusicPriority)8;
+                    priority = (MusicPriority)7;
                 }
 
                 // Red Cloud Boss Music
@@ -607,12 +607,13 @@ namespace tsorcMusic
 
 
         // this changes the boundaries of the oceans
+        // right side has no ocean biome
         public class tsorcMusicPlayer : ModPlayer
         {
             public override void PreUpdate()
             {
                 Point point = player.Center.ToTileCoordinates();
-                player.ZoneBeach = player.ZoneOverworldHeight && (point.X < 793 || point.X > Main.maxTilesX - 785); //default 380 and 380
+                player.ZoneBeach = player.ZoneOverworldHeight && (point.X < 1000 || point.X > Main.maxTilesX - 1); //default 380 and 380
             }
         }
     }
