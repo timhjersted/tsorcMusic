@@ -613,7 +613,7 @@ namespace tsorcMusic
             public override void PreUpdate()
             {
                 Point point = player.Center.ToTileCoordinates();
-                player.ZoneBeach = player.ZoneOverworldHeight && (point.X < 1000 || point.X > Main.maxTilesX - 1); //default 380 and 380
+                player.ZoneBeach = player.ZoneOverworldHeight && (point.X < 1000 || point.X > Main.maxTilesX - 8398); //default 380 and 380
             }
         }
     }
