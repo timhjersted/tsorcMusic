@@ -605,6 +605,15 @@ namespace tsorcMusic
 
         }
 
+        public override void Close()
+        {
+            int titleMusicIndex = ((Mod)this).GetSoundSlot((SoundType)51, "Sounds/Music/Night");
+            if (Main.music[titleMusicIndex].IsPlaying)
+            {
+                Main.music[titleMusicIndex].Stop(Microsoft.Xna.Framework.Audio.AudioStopOptions.Immediate);
+            }
+            base.Close();
+        }
 
         // this changes the boundaries of the oceans
         // right side has no ocean biome
