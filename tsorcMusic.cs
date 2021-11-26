@@ -333,11 +333,15 @@ namespace tsorcMusic
                 }
 
                 // Special Areas
-
-                if (Main.tile[(int)(Main.LocalPlayer.Center.X / 16f), (int)(Main.LocalPlayer.Center.Y / 16f)].wall == WallID.LihzahrdBrickUnsafe && !NPC.AnyNPCs(245))
+                int playerX = (int)(Main.LocalPlayer.Center.X / 16f);
+                int playerY = (int)(Main.LocalPlayer.Center.Y / 16f);
+                if (Main.tile.GetUpperBound(0) < playerX && Main.tile.GetUpperBound(1) < playerY)
                 {
-                    music = ((Mod)this).GetSoundSlot((SoundType)51, "Sounds/Music/UndergroundDesert");
-                    priority = (MusicPriority)7;
+                    if (Main.tile[playerX, playerY] != null && Main.tile[playerX, playerY].wall == WallID.LihzahrdBrickUnsafe && !NPC.AnyNPCs(245))
+                    {
+                        music = ((Mod)this).GetSoundSlot((SoundType)51, "Sounds/Music/UndergroundDesert");
+                        priority = (MusicPriority)7;
+                    }
                 }
 
                 // Randomize song for a single biome code, untested
@@ -510,7 +514,7 @@ namespace tsorcMusic
                         priority = (MusicPriority)7;
                     }
                     //Fiends
-                    if (NPC.AnyNPCs(tsorcRevamp.NPCType("EarthFiendLich")))
+                    if (NPC.AnyNPCs(tsorcRevamp.NPCType("EarthFiendLich")) || NPC.AnyNPCs(tsorcRevamp.NPCType("LichKingDisciple")) || NPC.AnyNPCs(tsorcRevamp.NPCType("LichKingSerpentHead")))
                     {
                         music = ((Mod)this).GetSoundSlot((SoundType)51, "Sounds/Music/Boss5");
                         priority = (MusicPriority)7;
