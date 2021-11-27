@@ -580,7 +580,12 @@ namespace tsorcMusic
                         music = ((Mod)this).GetSoundSlot((SoundType)51, "Sounds/Music/Boss5");
                         priority = (MusicPriority)7;
                     }
-                    else if (NPC.AnyNPCs(tsorcRevamp.NPCType("Okiku"))) //phase 3
+                    else if (NPC.AnyNPCs(tsorcRevamp.NPCType("Okiku"))) //phase 3a
+                    {
+                        music = ((Mod)this).GetSoundSlot((SoundType)51, "Sounds/Music/Boss5");
+                        priority = (MusicPriority)7;
+                    }
+                    else if (NPC.AnyNPCs(tsorcRevamp.NPCType("BrokenOkiku"))) //phase 3b
                     {
                         music = ((Mod)this).GetSoundSlot((SoundType)51, "Sounds/Music/Boss5");
                         priority = (MusicPriority)7;
