@@ -1,6 +1,6 @@
 displayName = The Story of Red Cloud Music
 author = Vibrent
-version = 0.3.7
+version = 0.3.9
 includePDB = true
 homepage = https://discord.com/invite/8cv4t2BBaT
 hideCode = false
