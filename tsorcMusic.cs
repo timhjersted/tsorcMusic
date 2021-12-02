@@ -298,7 +298,7 @@ namespace tsorcMusic
                 else if (Main.player[Main.myPlayer].active && Main.player[Main.myPlayer].ZoneRain)
                 {
                     music = ((Mod)this).GetSoundSlot((SoundType)51, "Sounds/Music/Rain");
-                    priority = (MusicPriority)3;
+                    priority = (MusicPriority)2;
                 }
                 else if (Main.player[Main.myPlayer].active && Main.player[Main.myPlayer].ZoneDirtLayerHeight && !Main.player[Main.myPlayer].ZoneBeach && !Main.player[Main.myPlayer].ZoneSnow && !Main.player[Main.myPlayer].ZoneCorrupt && !Main.player[Main.myPlayer].ZoneCrimson && !Main.player[Main.myPlayer].ZoneDesert && !Main.player[Main.myPlayer].ZoneDungeon && !Main.player[Main.myPlayer].ZoneGlowshroom && !Main.player[Main.myPlayer].ZoneHoly && !Main.player[Main.myPlayer].ZoneJungle && !Main.player[Main.myPlayer].ZoneMeteor && !Main.player[Main.myPlayer].ZoneOldOneArmy && !Main.player[Main.myPlayer].ZoneTowerNebula && !Main.player[Main.myPlayer].ZoneTowerSolar && !Main.player[Main.myPlayer].ZoneTowerVortex && !Main.player[Main.myPlayer].ZoneTowerStardust && !Main.player[Main.myPlayer].ZoneUnderworldHeight)
                 {
@@ -617,9 +617,12 @@ namespace tsorcMusic
         public override void Close()
         {
             int titleMusicIndex = ((Mod)this).GetSoundSlot((SoundType)51, "Sounds/Music/Night");
-            if (Main.music[titleMusicIndex].IsPlaying)
+            if (titleMusicIndex >= 0 && titleMusicIndex < Main.music.Length)
             {
-                Main.music[titleMusicIndex].Stop(Microsoft.Xna.Framework.Audio.AudioStopOptions.Immediate);
+                if (Main.music[titleMusicIndex].IsPlaying)
+                {
+                    Main.music[titleMusicIndex].Stop(Microsoft.Xna.Framework.Audio.AudioStopOptions.Immediate);
+                }
             }
             base.Close();
         }
