@@ -335,7 +335,7 @@ namespace tsorcMusic
                 // Special Areas
                 int playerX = (int)(Main.LocalPlayer.Center.X / 16f);
                 int playerY = (int)(Main.LocalPlayer.Center.Y / 16f);
-                if (Main.tile.GetUpperBound(0) < playerX && Main.tile.GetUpperBound(1) < playerY)
+                if (Main.tile.GetUpperBound(0) > playerX && Main.tile.GetUpperBound(1) > playerY)
                 {
                     if (Main.tile[playerX, playerY] != null && Main.tile[playerX, playerY].wall == WallID.LihzahrdBrickUnsafe && !NPC.AnyNPCs(245))
                     {
