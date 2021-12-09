@@ -382,7 +382,7 @@ namespace tsorcMusic
                 else if (NPC.AnyNPCs(35)) // Skeletron
                 {
                     music = ((Mod)this).GetSoundSlot((SoundType)51, "Sounds/Music/Boss6");
-                    priority = (MusicPriority)6;
+                    priority = (MusicPriority)7;
                 }
                 else if (NPC.AnyNPCs(113)) // Wall of Flesh
                 {
