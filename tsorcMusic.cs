@@ -354,7 +354,7 @@ namespace tsorcMusic
 
 
                 // Vanilla Bosses
-                else if (NPC.AnyNPCs(4)) // Eye of Cthulhu 
+                if (NPC.AnyNPCs(4)) // Eye of Cthulhu 
                 {
                     music = ((Mod)this).GetSoundSlot((SoundType)51, "Sounds/Music/Boss1");
                     priority = (MusicPriority)6;
