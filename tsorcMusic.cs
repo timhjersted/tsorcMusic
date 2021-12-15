@@ -295,7 +295,7 @@ namespace tsorcMusic
                     music = ((Mod)this).GetSoundSlot((SoundType)51, "Sounds/Music/Space");
                     priority = (MusicPriority)5;
                 }
-                else if (Main.player[Main.myPlayer].active && Main.player[Main.myPlayer].ZoneRain)
+                else if (Main.player[Main.myPlayer].active && Main.player[Main.myPlayer].ZoneRain && !Main.player[Main.myPlayer].ZoneCrimson && !Main.player[Main.myPlayer].ZoneCorrupt)
                 {
                     music = ((Mod)this).GetSoundSlot((SoundType)51, "Sounds/Music/Rain");
                     priority = (MusicPriority)2;
@@ -606,12 +606,7 @@ namespace tsorcMusic
                         priority = (MusicPriority)7;
                     }
                 }
-
-                
-
             }
-
-
         }
 
         public override void Close()
