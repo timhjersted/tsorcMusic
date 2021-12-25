@@ -344,6 +344,11 @@ namespace tsorcMusic
                     }
                 }
 
+                if (Main.player[Main.myPlayer].active && playerX > 4777 && playerX < 4955 && playerY > 823 && playerY < 883 && (!NPC.downedBoss1 || !NPC.downedBoss2 || !NPC.downedBoss3)) //If in burnt village and haven't beaten EoC, EoW or Skelebones
+                {
+                    music = ((Mod)this).GetSoundSlot((SoundType)51, "Sounds/Music/Night");
+                    priority = (MusicPriority)6;
+                }
                 // Randomize song for a single biome code, untested
                 //	if (music != ((Mod)this).GetSoundSlot((SoundType)51, "Sounds/Music/Jungle") && ((Mod)this).GetSoundSlot((SoundType)51, "Sounds/Music/Jungle2");)
                 //	{
