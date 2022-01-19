@@ -364,7 +364,7 @@ namespace tsorcMusic
 
                 if (NPC.AnyNPCs(243)) // Ice Golem
                 {
-                    music = ((Mod)this).GetSoundSlot((SoundType)51, "Sounds/Music/Boss1");
+                    music = ((Mod)this).GetSoundSlot((SoundType)51, "Sounds/Music/Cavern");
                     priority = (MusicPriority)6;
                 }
 
