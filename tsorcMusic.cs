@@ -360,7 +360,12 @@ namespace tsorcMusic
 
                 //Vanilla Enemies
 
-                //if (NPC.AnyNPCs(343)) // Yeti
+
+                if (NPC.AnyNPCs(343)) // Yeti
+                {
+                    music = ((Mod)this).GetSoundSlot((SoundType)51, "Sounds/Music/Cavern");
+                    priority = (MusicPriority)5;
+                }
 
                 if (NPC.AnyNPCs(243)) // Ice Golem
                 {
