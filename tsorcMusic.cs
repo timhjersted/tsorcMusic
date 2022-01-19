@@ -358,6 +358,28 @@ namespace tsorcMusic
                 //	}
 
 
+                //Vanilla Enemies
+
+                //if (NPC.AnyNPCs(343)) // Yeti
+
+                if (NPC.AnyNPCs(243)) // Ice Golem
+                {
+                    music = ((Mod)this).GetSoundSlot((SoundType)51, "Sounds/Music/Boss1");
+                    priority = (MusicPriority)6;
+                }
+
+                if (NPC.AnyNPCs(578) && !(NPC.AnyNPCs(548) || NPC.AnyNPCs(549) || NPC.AnyNPCs(554) || NPC.AnyNPCs(563))) // DD2LightningBugT3
+                {
+                    music = ((Mod)this).GetSoundSlot((SoundType)51, "Sounds/Music/UndergroundMushrooms");
+                    priority = (MusicPriority)6;
+                }
+
+                if (NPC.AnyNPCs(548) || NPC.AnyNPCs(549)) // ETERNIA EVENT
+                {
+                    music = ((Mod)this).GetSoundSlot((SoundType)51, "Sounds/Music/Boss2");
+                    priority = (MusicPriority)6;
+                }
+
                 // Vanilla Bosses
                 if (NPC.AnyNPCs(4)) // Eye of Cthulhu 
                 {
@@ -464,10 +486,24 @@ namespace tsorcMusic
                     priority = (MusicPriority)7;
                 }
 
-                // Red Cloud Boss Music
+                // Red Cloud Music
                 Mod tsorcRevamp = ModLoader.GetMod("tsorcRevamp");
                 if (tsorcRevamp != null)
                 {
+                    // Red Cloud Enemy Music
+                    if (!Main.hardMode && NPC.AnyNPCs(tsorcRevamp.NPCType("RedKnight")))
+                    {
+                        music = ((Mod)this).GetSoundSlot((SoundType)51, "Sounds/Music/Boss1");
+                        priority = (MusicPriority)7;
+                    }
+
+                    if (NPC.AnyNPCs(tsorcRevamp.NPCType("LeonhardPhase1")))
+                    {
+                        music = ((Mod)this).GetSoundSlot((SoundType)51, "Sounds/Music/Boss2");
+                        priority = (MusicPriority)7;
+                    }
+
+                    // Red Cloud Boss Music
                     if (NPC.AnyNPCs(tsorcRevamp.NPCType("JungleWyvernHead")))
                     {
                         music = ((Mod)this).GetSoundSlot((SoundType)51, "Sounds/Music/Boss1");
