@@ -595,7 +595,7 @@ namespace tsorcMusic
                         music = ((Mod)this).GetSoundSlot((SoundType)51, "Sounds/Music/Boss2");
                         priority = (MusicPriority)7;
                     }
-                    if (NPC.AnyNPCs(tsorcRevamp.NPCType("SeathTheScalelessHead")))
+                    if (NPC.AnyNPCs(tsorcRevamp.NPCType("SeathTheScalelessHead")) || NPC.AnyNPCs(tsorcRevamp.NPCType("PrimordialCrystal")))
                     {
                         music = ((Mod)this).GetSoundSlot((SoundType)51, "Sounds/Music/Boss5");
                         priority = (MusicPriority)7;
@@ -653,11 +653,19 @@ namespace tsorcMusic
         public override void Close()
         {
             int titleMusicIndex = ((Mod)this).GetSoundSlot((SoundType)51, "Sounds/Music/Night");
+            int rainMusicIndex = ((Mod)this).GetSoundSlot((SoundType)51, "Sounds/Music/Rain");
             if (titleMusicIndex >= 0 && titleMusicIndex < Main.music.Length)
             {
                 if (Main.music[titleMusicIndex].IsPlaying)
                 {
                     Main.music[titleMusicIndex].Stop(Microsoft.Xna.Framework.Audio.AudioStopOptions.Immediate);
+                }
+            }
+            if (rainMusicIndex >= 0 && rainMusicIndex < Main.music.Length)
+            {
+                if (Main.music[rainMusicIndex].IsPlaying)
+                {
+                    Main.music[rainMusicIndex].Stop(Microsoft.Xna.Framework.Audio.AudioStopOptions.Immediate);
                 }
             }
             base.Close();
