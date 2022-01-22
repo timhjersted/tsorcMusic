@@ -509,6 +509,11 @@ namespace tsorcMusic
                     }
 
                     // Red Cloud Boss Music
+                    if (NPC.AnyNPCs(tsorcRevamp.NPCType("HeroofLumelia")))
+                    {
+                        music = ((Mod)this).GetSoundSlot((SoundType)51, "Sounds/Music/Boss2");
+                        priority = (MusicPriority)7;
+                    }
                     if (NPC.AnyNPCs(tsorcRevamp.NPCType("JungleWyvernHead")))
                     {
                         music = ((Mod)this).GetSoundSlot((SoundType)51, "Sounds/Music/Boss1");
