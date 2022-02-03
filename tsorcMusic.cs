@@ -456,11 +456,11 @@ namespace tsorcMusic
                     music = ((Mod)this).GetSoundSlot((SoundType)51, "Sounds/Music/Boss2");
                     priority = (MusicPriority)6;
                 }
-                //else if (NPC.AnyNPCs(125) || NPC.AnyNPCs(126)) // The Twins
-                //{
-                //    music = ((Mod)this).GetSoundSlot((SoundType)51, "Sounds/Music/Boss1");
-                //    priority = (MusicPriority)6;
-                //}
+                else if (NPC.AnyNPCs(125) || NPC.AnyNPCs(126)) // The Twins
+                {
+                    music = ((Mod)this).GetSoundSlot((SoundType)51, "Sounds/Music/Boss1");
+                    priority = (MusicPriority)6;
+                }
                 else if (NPC.AnyNPCs(127)) // Skeletron Prime
                 {
                     music = ((Mod)this).GetSoundSlot((SoundType)51, "Sounds/Music/Boss6");
