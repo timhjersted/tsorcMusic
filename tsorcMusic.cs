@@ -68,7 +68,7 @@ namespace tsorcMusic
                 else if (Main.player[Main.myPlayer].active && Main.player[Main.myPlayer].ZoneDesert)
                 {
                     music = ((Mod)this).GetSoundSlot((SoundType)51, "Sounds/Music/Desert");
-                    priority = (MusicPriority)4;
+                    priority = (MusicPriority)5;
                 }
                 else if (Main.player[Main.myPlayer].active && Main.player[Main.myPlayer].ZoneDungeon && Main.player[Main.myPlayer].ZoneUndergroundDesert || Main.player[Main.myPlayer].ZoneDesert)
                 {
@@ -78,7 +78,7 @@ namespace tsorcMusic
                 if (Main.player[Main.myPlayer].active && Main.player[Main.myPlayer].ZoneSandstorm)
                 {
                     music = ((Mod)this).GetSoundSlot((SoundType)51, "Sounds/Music/Sandstorm");
-                    priority = (MusicPriority)7;
+                    priority = (MusicPriority)8;
                 }
                 else if (Main.player[Main.myPlayer].active && Main.player[Main.myPlayer].ZoneOverworldHeight && Main.player[Main.myPlayer].ZoneHoly)
                 {
@@ -509,6 +509,11 @@ namespace tsorcMusic
                     }
 
                     // Red Cloud Boss Music
+                    if (NPC.AnyNPCs(tsorcRevamp.NPCType("AncientOolacileDemon")) || NPC.AnyNPCs(tsorcRevamp.NPCType("AncientDemonOfTheAbyss")))
+                    {
+                        music = ((Mod)this).GetSoundSlot((SoundType)51, "Sounds/Music/Boss6");
+                        priority = (MusicPriority)7;
+                    }
                     if (NPC.AnyNPCs(tsorcRevamp.NPCType("HeroofLumelia")))
                     {
                         music = ((Mod)this).GetSoundSlot((SoundType)51, "Sounds/Music/Boss2");
