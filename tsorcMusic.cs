@@ -739,6 +739,14 @@ namespace tsorcMusic
                 }
             }
 
+            if ((int)Priority <= 6)
+            {
+                Priority++;
+            }
+            if ((int)Priority <= 7)
+            {
+                Priority++;
+            }
             return new Tuple<int, SceneEffectPriority>(Music, Priority);
         }        
     }
