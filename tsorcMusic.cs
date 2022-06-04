@@ -25,11 +25,22 @@ namespace tsorcMusic
 
         public override string Name => "tsorcMusic";
 
-        public override void Load()
-        {
 
+        public override void PostSetupContent()
+        {           
+            Type menuLoaderType = typeof(MenuLoader);
+            FieldInfo menuListInfo = menuLoaderType.GetField("menus", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Static);
+
+            System.Collections.Generic.List<ModMenu> modMenuList = (System.Collections.Generic.List < ModMenu > )menuListInfo.GetValue(null);
+
+            //Only forcibly set the menu to ours if ours is the only menu loaded, to avoid conflicts (and the wrath of the TML team)
+            if (modMenuList[3].Name == "The Story of Red Cloud" && modMenuList.Count == 4)
+            {
+                FieldInfo LastSelectedModMenuInfo = menuLoaderType.GetField("LastSelectedModMenu", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Static);
+                LastSelectedModMenuInfo.SetValue(null, modMenuList[3].FullName);
+            }
         }
-        
+
         public override void Close()
         {
             //This code prevented a crash in 1.3, which could happen if the modded main menu music was playing while the mod was unloaded.
@@ -54,7 +65,16 @@ namespace tsorcMusic
             base.Close();*/
         }
     }
+    public class tsorcMusicMenu : ModMenu
+    {
+        public override int Music => MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/Night");
+        public override string Name => "The Story of Red Cloud";
+        public override void Update(bool isOnTitleScreen)
+        {            
 
+           Main.curMusic = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/Night");
+        }
+    }
 
     public class tsorcMusicScene : ModSceneEffect
     {
