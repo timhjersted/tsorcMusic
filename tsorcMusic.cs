@@ -567,7 +567,9 @@ namespace tsorcMusic
                 }
 
                 // Red Cloud Music
-                Mod tsorcRevamp = ModLoader.GetMod("tsorcRevamp");
+
+                Mod tsorcRevamp;
+                ModLoader.TryGetMod("tsorcRevamp", out tsorcRevamp);
                 if (tsorcRevamp != null)
                 {
                     // Red Cloud Enemy Music
@@ -739,6 +741,7 @@ namespace tsorcMusic
                 }
             }
 
+            //Boost all the priorities by 2, to firmly overwrite all vanilla music
             if ((int)Priority <= 6)
             {
                 Priority++;
