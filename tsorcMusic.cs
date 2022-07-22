@@ -399,7 +399,6 @@ namespace tsorcMusic
                     //Town music
                     if (playerX > 3980 && playerX < 4393 && playerY > 600 && playerY < 788)
                     {
-                        Main.NewText("running");
                         if (Main.dayTime)
                         {
                             Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/OverworldDay"); //Set town day music
