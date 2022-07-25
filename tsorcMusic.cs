@@ -466,8 +466,8 @@ namespace tsorcMusic
                     int playerX = (int)(Main.LocalPlayer.Center.X / 16f);
                     int playerY = (int)(Main.LocalPlayer.Center.Y / 16f);
 
-                    //village 
-                    if (playerX > 3999 && playerX < 4393 && playerY > 600 && playerY < 788) //X - left then right coordinate, higher in the sky then lower in ground number
+                    //village, plus "towns" with 3 or more npcs anywhere
+                    if ((playerX > 3999 && playerX < 4393 && playerY > 600 && playerY < 788) || Main.LocalPlayer.townNPCs > 2) //X - left then right coordinate, higher in the sky then lower in ground number
                     {
                         if (Main.dayTime)
                         {
