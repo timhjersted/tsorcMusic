@@ -258,7 +258,7 @@ namespace tsorcMusic
                         Priority = SceneEffectPriority.Environment;
                     }
                     //new jungle code
-                    if (Main.LocalPlayer.ZoneJungle && !Main.LocalPlayer.ZoneMeteor && Main.LocalPlayer.ZoneOverworldHeight)
+                    if (Main.LocalPlayer.ZoneJungle && !Main.LocalPlayer.ZoneDungeon && !Main.LocalPlayer.ZoneMeteor && Main.LocalPlayer.ZoneOverworldHeight)
                     {
                         Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/Jungle");
                         Priority = SceneEffectPriority.BiomeLow;
@@ -273,7 +273,7 @@ namespace tsorcMusic
                         Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/UndergroundJungle");
                         Priority = SceneEffectPriority.BiomeLow;
                     }
-
+                    
 
                     /*
                     if (Main.LocalPlayer.ZoneJungle && !Main.LocalPlayer.ZoneMeteor && !Main.LocalPlayer.ZoneDungeon && !Main.LocalPlayer.ZoneBeach && !Main.LocalPlayer.ZoneDesert)
@@ -325,7 +325,7 @@ namespace tsorcMusic
                     */
 
                     //snow
-                    
+
                     //snow above ground
                     if (Main.LocalPlayer.ZoneSnow && Main.LocalPlayer.ZoneOverworldHeight && Main.dayTime)
                     {
@@ -485,14 +485,14 @@ namespace tsorcMusic
                     if (!Main.hardMode && (Main.LocalPlayer.ZoneDungeon || (Main.LocalPlayer.ZoneDungeon && Main.LocalPlayer.ZoneJungle)))
                     {
                         Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/ForgottenCity");
-                        Priority = SceneEffectPriority.BossLow;
+                        Priority = SceneEffectPriority.Event;
                     }
 
                     //forgotten City HM
                     if (Main.hardMode && (Main.LocalPlayer.ZoneDungeon || (Main.LocalPlayer.ZoneDungeon && Main.LocalPlayer.ZoneJungle)))
                     {
                         Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/Boss10");
-                        Priority = SceneEffectPriority.BossLow;
+                        Priority = SceneEffectPriority.Event;
                     }
 
                     //wyvern mage fortress
