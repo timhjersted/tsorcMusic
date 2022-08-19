@@ -518,7 +518,7 @@ namespace tsorcMusic
 
 
                     //sky temple
-                    if ((playerX > 1421 && playerX < 4973 && playerY < 470) || (playerX > 1635 && playerX < 2491 && playerY < 430) || (playerX > 44 && playerX < 1015 && playerY < 580)) // empress of light, vortex island to the right of attraidies, wise man and island far left
+                    if ((playerX > 1421 && playerX < 4973 && playerY < 470) || (playerX > 1200 && playerX < 2491 && playerY < 430) || (playerX > 44 && playerX < 1015 && playerY < 580)) // empress of light, attraidies sky temple plus vortex island to the right of attraidies, wise man and island far left
                     {
                         Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/SkyTemple");
                         Priority = SceneEffectPriority.BiomeMedium; //Set priority
@@ -579,7 +579,7 @@ namespace tsorcMusic
                     }
 
                     //dark tower
-                    if (playerX > 1310 && playerX < 1460 && playerY > 100 && playerY < 864)
+                    if (playerX > 1310 && playerX < 1460 && playerY > 354 && playerY < 864)
                     {
                         Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/DarkTower");
                         Priority = SceneEffectPriority.BossLow; //Set priority
@@ -714,7 +714,7 @@ namespace tsorcMusic
                     }
                     else if (NPC.AnyNPCs(262)) // Plantera
                     {
-                        Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/Boss4");
+                        Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/Boss14");
                         Priority = SceneEffectPriority.BossMedium;
                     }
                     else if (NPC.AnyNPCs(370)) // Duke Fishron
