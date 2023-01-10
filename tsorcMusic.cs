@@ -739,7 +739,7 @@ namespace tsorcMusic
                     }
                     else if (NPC.AnyNPCs(125) || NPC.AnyNPCs(126)) // The Twins
                     {
-                        Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/Boss1");
+                        Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/Boss11");
                         Priority = SceneEffectPriority.BossLow;
                     }
                     else if (NPC.AnyNPCs(127)) // Skeletron Prime
@@ -822,9 +822,10 @@ namespace tsorcMusic
                             Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/Boss10");
                             Priority = SceneEffectPriority.BossMedium;
                         }
+                        //The Triad
                         if (NPC.AnyNPCs(tsorcRevamp.Find<ModNPC>("Cataluminance").Type) || NPC.AnyNPCs(tsorcRevamp.Find<ModNPC>("RetinazerV2").Type) || NPC.AnyNPCs(tsorcRevamp.Find<ModNPC>("SpazmatismV2").Type))
                         {
-                            Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/Boss1");
+                            Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/Boss9");
                             Priority = SceneEffectPriority.BossMedium;
                         }
                         if (NPC.AnyNPCs(tsorcRevamp.Find<ModNPC>("Artorias").Type))
