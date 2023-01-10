@@ -85,7 +85,7 @@ namespace tsorcMusic
         {
             return true;
         }
-
+        
         public Tuple<int, SceneEffectPriority> SelectMusic()
         {
             int Music = 0;
@@ -820,6 +820,11 @@ namespace tsorcMusic
                         if (NPC.AnyNPCs(tsorcRevamp.Find<ModNPC>("TheHunter").Type))
                         {
                             Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/Boss10");
+                            Priority = SceneEffectPriority.BossMedium;
+                        }
+                        if (NPC.AnyNPCs(tsorcRevamp.Find<ModNPC>("Cataluminance").Type) || NPC.AnyNPCs(tsorcRevamp.Find<ModNPC>("RetinazerV2").Type) || NPC.AnyNPCs(tsorcRevamp.Find<ModNPC>("SpazmatismV2").Type))
+                        {
+                            Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/Boss1");
                             Priority = SceneEffectPriority.BossMedium;
                         }
                         if (NPC.AnyNPCs(tsorcRevamp.Find<ModNPC>("Artorias").Type))
