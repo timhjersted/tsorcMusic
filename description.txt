@@ -56,8 +56,6 @@ Dungeon / Ocarina of Time - Spirit Temple Reorchestrated / Majora's Mask - Stone
 
 Eerie / "Elden Ring: Prison Town" (From Software)
 
-Ending / "Elden Ring: Ending" (From Software)
-
 Forgotten City / "Elden Ring: Eternal City" (From Software)
 
 Hallow / "Elden Ring: Altus_Plateau" (From Software)
@@ -75,8 +73,6 @@ Ocean / "The Legend of Zelda: Skyward Sword - Sailing the Sand Sea"(Hajime Wakai
 Old One's Tree / "Elden Ring: Song of Honor" (From Software)
 
 Overworld Day / "World of Warcraft: Elwynn Forest" (Blizzard Entertainment)
-
-Overworld Day (OLD) / "A Link to the Past - Dark Overworld Theme Reorchestrated" (ZREO) / "The Minish Cap - Mt. Crenel Reorchestrated" (ZREO)
 
 Rain / "Faron Woods" (ZREO)
 
@@ -130,3 +126,19 @@ ____________________
 "Frog Chorus" (Echoes of Nature album by American Wilds)
 "Deep Woods" (Echoes of Nature album by American Wilds)  
 "Crickets" (Echoes of Nature album by American Wilds)
+
+
+Removed:
+-Boss 1 (OLD) / Ocarina of Time - Battle Reorchestrated (ZREO)
+-Boss 2 (OLD) / Ocarina of Time - Ganon Battle Theme Reorchestrated (ZREO)
+-Boss 3 (OLD) / A Link to the Past - Boss Battle Reorchestrated (ZREO)
+-Desert (OLD) / "Forest Temple - The Legend of Zelda - Twilight Princess- " (Nintendo)
+-Ending (NEVER USED) / "Elden Ring: Ending" (From Software)
+-Eerie (OLD) / "Lakebed Temple  - The Legend of Zelda: Twilight Princess" (Koji Kondo)
+-Hallow (OLD) / "Skyward Sword - Skyview Temple Reorchestrated" (ZREO)
+-Overworld Day (OLD) / "A Link to the Past - Dark Overworld Theme Reorchestrated" (ZREO) / "The Minish Cap - Mt. Crenel Reorchestrated" (ZREO)
+-Sandstorm (OLD)/ "The Legend of Zelda Breath of the Wild - Attack on Vah Naboris" (Nintendo)
+-Snow (OLD) / "Dark Souls - Crystal Caves Ambient Sounds" (From Software)
+-Underground Eerie (OLD) / "Great Bay Temple, TLOZ: Majora's Mask" (Koji Kondo, Nintendo)
+-Underground Jungle (OLD) / "Forest Temple - The Legend of Zelda - Twilight Princess- " (Nintendo)
+-Underworld (OLD) / "Pinwheels Sarcophagus - Ambient Sounds, Dark Souls" (From Software)
