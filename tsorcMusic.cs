@@ -667,6 +667,11 @@ namespace tsorcMusic
                         Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/Boss1");
                         Priority = SceneEffectPriority.BossLow;
                     }
+                    else if (NPC.AnyNPCs(668)) // Deerclops
+                    {
+                        Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/Boss10");
+                        Priority = SceneEffectPriority.BossLow;
+                    }
                     else if (NPC.AnyNPCs(50)) // King Slime
                     {
                         Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/Boss10");
