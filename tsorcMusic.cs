@@ -783,20 +783,40 @@ namespace tsorcMusic
                     ModLoader.TryGetMod("tsorcRevamp", out tsorcRevamp);
                     if (tsorcRevamp != null)
                     {
-                        // Red Cloud Enemy Music
-                        if (!Main.hardMode && NPC.AnyNPCs(tsorcRevamp.Find<ModNPC>("RedKnight").Type))
+                        // Red Cloud Boss Music
+
+                        // The Machine
+                        if (NPC.AnyNPCs(tsorcRevamp.Find<ModNPC>("TheMachine").Type))
+                        {
+                            Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/Boss11");
+                            Priority = SceneEffectPriority.BossMedium;
+                        }                       
+                        // Red Knight 
+                        if (NPC.AnyNPCs(tsorcRevamp.Find<ModNPC>("RedKnight").Type))
                         {
                             Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/Sandstorm");
+                            Priority = SceneEffectPriority.BossLow;
+                        }
+                        // Great Red Knight 
+                        if (NPC.AnyNPCs(tsorcRevamp.Find<ModNPC>("GreatRedKnight").Type))
+                        {
+                            Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/Boss13");
                             Priority = SceneEffectPriority.BossMedium;
                         }
-
+                        // Black Knight
+                        if (NPC.AnyNPCs(tsorcRevamp.Find<ModNPC>("BlackKnight").Type))
+                        {
+                            Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/Boss15");
+                            Priority = SceneEffectPriority.BossMedium;
+                        }
+                        // Leonhard Phase 1
                         if (NPC.AnyNPCs(tsorcRevamp.Find<ModNPC>("LeonhardPhase1").Type))
                         {
                             Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/Invader");
                             Priority = SceneEffectPriority.BossMedium;
                         }
 
-                        // Red Cloud Boss Music
+                        // Ancient Demons
                         if (NPC.AnyNPCs(tsorcRevamp.Find<ModNPC>("AncientOolacileDemon").Type) || NPC.AnyNPCs(tsorcRevamp.Find<ModNPC>("AncientDemonOfTheAbyss").Type) || NPC.AnyNPCs(tsorcRevamp.Find<ModNPC>("AncientDemon").Type))
                         {
                             Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/Boss15");
