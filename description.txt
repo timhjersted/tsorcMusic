@@ -1,7 +1,7 @@
-This is the music soundtrack for The Story of Red Cloud, compiled and audio-mixed by Vibrent (updated for tModLoader & Terraria 1.4.3.6). All credit and thanks for these songs go to the original composers and remixers and are used here under Fair Use.
+This is the music soundtrack for The Story of Red Cloud, compiled and audio-mixed by Vibrent. All credit and thanks for these songs go to the original composers and remixers and are used here under Fair Use.
 
-Coding by RecursiveCollapse and Vibrent.
-
+Version compatibility: tModLoader & Terraria 1.4.4.9
+Coding by: RecursiveCollapse and Vibrent
 Contact: Vibrent#7623 on Discord.com
 
 SONG CREDITS
