@@ -42,6 +42,12 @@ Boss 16 / "Elden Ring: Fire Giant" (From Software)
 
 Boss 17 / "Elden Ring: Beast Clergyman" (From Software)
 
+Boss18 / "Dark Souls: Pinwheel" (From Software)
+
+Boss19 / "Elden Ring: Melania" (From Software)
+
+Catacombs / "Elden Ring: Catacombs (Yuka Kitamura - From Software)
+
 Cavern / "Metroid Prime 2 - Torvus Bog Entrance" (Kenji Yamamoto)
 
 Corruption / Dark Souls Abyss ambient sounds (From Software) + "Hive Tunnel - Metroid Prime 2" (Nintendo)
@@ -58,6 +64,10 @@ Eerie / "Elden Ring: Prison Town" (From Software)
 
 Forgotten City / "Elden Ring: Eternal City" (From Software)
 
+God-DevouringSerpent / "Elden Ring: God-Devouring Serpent" (From Software)
+
+GreatUndergroundRivers / "Elden Ring: Great Underground Rivers" (From Software)
+
 Hallow / "Elden Ring: Altus_Plateau" (From Software)
 
 Hallow (OLD) / "Skyward Sword - Skyview Temple Reorchestrated" (ZREO)
@@ -72,6 +82,8 @@ Ocean / "The Legend of Zelda: Skyward Sword - Sailing the Sand Sea"(Hajime Wakai
 
 Old One's Tree / "Elden Ring: Song of Honor" (From Software)
 
+Opening / "Elden Ring: Opening" (From Software)
+
 Overworld Day / "World of Warcraft: Elwynn Forest" (Blizzard Entertainment)
 
 Rain / "Faron Woods" (ZREO)
@@ -79,6 +91,8 @@ Rain / "Faron Woods" (ZREO)
 Sandstorm / "Elden Ring: Black Knives" (From Software)
 
 Sky Temple / "Elden Ring: Lyndell Capital" (From Software)
+
+Tunnels / "Elden Ring: Tunnels" (Yuka Kitamura - From Software)
 
 Space / "Chozo Statue Awakens" (The Blake Robinson Synthetic Orchestra) 
 

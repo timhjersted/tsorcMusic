@@ -95,48 +95,68 @@ namespace tsorcMusic
                 Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/VillageDay");
                 Priority = SceneEffectPriority.BiomeMedium;
             }
-            else //Biomes
+            else // Biomes
             {
                 if (Main.LocalPlayer.active)
                 {
-                    //overworld daytime and not desert or snow or glowshroom
+                    // overworld daytime and not desert or snow or glowshroom
                     if (Main.LocalPlayer.ZoneOverworldHeight && Main.dayTime && (!Main.LocalPlayer.ZoneDesert || Main.LocalPlayer.ZoneGlowshroom || !Main.LocalPlayer.ZoneSnow)) //overworld and daytime and not desert
                     {
                         Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/OverworldDay");
-                        Priority = SceneEffectPriority.BiomeLow;
+                        Priority = SceneEffectPriority.BiomeMedium;
                     }
-                    //overworld and not desert and not snow and night
+
+                    // overworld forest
+                    if (Main.LocalPlayer.ZoneForest && Main.dayTime) //overworld and daytime and not desert
+                    {
+                        Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/OverworldDay");
+                        Priority = SceneEffectPriority.BiomeMedium;
+                    }
+
+                    // overworld and not desert and not snow and night
                     else if (Main.LocalPlayer.ZoneOverworldHeight && !Main.LocalPlayer.ZoneDesert && !Main.LocalPlayer.ZoneSnow && !Main.dayTime)
                     {
                         Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/Night");
                         Priority = SceneEffectPriority.BiomeLow;
                     }
-                    //desert
-                    //overworld and desert and/or jungle and daytime
+
+                    // marble and granite caves
+                    if (Main.LocalPlayer.ZoneGranite || Main.LocalPlayer.ZoneMarble || (Main.LocalPlayer.ZoneHive && !Main.LocalPlayer.ZoneOverworldHeight))
+                    {
+                        Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/Tunnels");
+                        Priority = SceneEffectPriority.BiomeMedium;
+                    }
+                    
+                    // desert
+                    // overworld and desert and/or jungle and daytime
                     if (Main.LocalPlayer.ZoneOverworldHeight && Main.dayTime && (Main.LocalPlayer.ZoneDesert || Main.LocalPlayer.ZoneDesert && Main.LocalPlayer.ZoneJungle)) 
                     {
                         Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/Desert");
                         Priority = SceneEffectPriority.BossLow;
                     }
-                    //overworld and desert and/or jungle and night time
+
+                    // overworld and desert and/or jungle and night time
                     if (Main.LocalPlayer.ZoneOverworldHeight && !Main.dayTime && (Main.LocalPlayer.ZoneDesert || Main.LocalPlayer.ZoneDesert && Main.LocalPlayer.ZoneJungle))
                     {
                         Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/Hallow");
                         Priority = SceneEffectPriority.BossLow;
                     }
-                    //overworld and desert and daytime
+
+                    // overworld and desert and daytime
                     else if (Main.LocalPlayer.ZoneOverworldHeight && Main.LocalPlayer.ZoneDesert && Main.dayTime) 
                     {
                         Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/Desert");
                         Priority = SceneEffectPriority.Event;
                     }
-                    //overworld and underground desert and night
+
+                    // overworld and underground desert and night
                     else if (Main.LocalPlayer.ZoneOverworldHeight && Main.LocalPlayer.ZoneUndergroundDesert && !Main.dayTime) 
                     {
                         Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/Hallow");
                         Priority = SceneEffectPriority.BossLow;
                     }
-                    //overworld and desert and not underground desert
+
+                    // overworld and desert and not underground desert
                     else if (Main.LocalPlayer.ZoneOverworldHeight && Main.LocalPlayer.ZoneDesert && !Main.LocalPlayer.ZoneUndergroundDesert) 
                     {
                         Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/Desert");
@@ -147,7 +167,8 @@ namespace tsorcMusic
                         Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/Desert");
                         Priority = SceneEffectPriority.Event;
                     }
-                    //underground desert
+
+                    // underground desert
                     else if (Main.LocalPlayer.ZoneRockLayerHeight && Main.LocalPlayer.ZoneUndergroundDesert)
                     {
                         Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/UndergroundDesert");
@@ -157,21 +178,16 @@ namespace tsorcMusic
                     {
                         Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/Desert");
                         Priority = SceneEffectPriority.Event;
-                    }
-                    /*
-                    else if (Main.LocalPlayer.ZoneDungeon && Main.LocalPlayer.ZoneUndergroundDesert || Main.LocalPlayer.ZoneDesert)
-                    {
-                        Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/UndergroundDesert");
-                        Priority = SceneEffectPriority.BossLow;
-                    }
-                    */
-                    //sandstorm
+                    }                
+
+                    // sandstorm
                     if (Main.LocalPlayer.ZoneSandstorm)
                     {
                         Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/Sandstorm");
                         Priority = SceneEffectPriority.Environment;
                     }
-                    //hallow
+
+                    // hallow
                     if (Main.LocalPlayer.ZoneOverworldHeight && Main.LocalPlayer.ZoneHallow)
                     {
                         Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/Hallow");
@@ -187,7 +203,8 @@ namespace tsorcMusic
                         Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/UndergroundHallow");
                         Priority = SceneEffectPriority.BiomeMedium;
                     }
-                    //ocean
+
+                    // ocean
                     if (Main.LocalPlayer.ZoneBeach)
                     {
                         Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/Ocean");
@@ -198,55 +215,22 @@ namespace tsorcMusic
                         Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/Ocean");
                         Priority = SceneEffectPriority.Event;
                     }
-
-                    /*
-                    else if (Main.LocalPlayer.ZoneDungeon && !Main.LocalPlayer.ZoneJungle)
-                    {
-                        Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/Dungeon");
-                        Priority = SceneEffectPriority.BiomeLow;//was environment
-                    }
-                    else if (Main.LocalPlayer.ZoneDungeon && Main.LocalPlayer.ZoneRockLayerHeight && Main.dayTime)
-                    {
-                        Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/Dungeon");
-                        Priority = SceneEffectPriority.Event;
-                    }
-                    else if (Main.LocalPlayer.ZoneDungeon && Main.LocalPlayer.ZoneRockLayerHeight && !Main.dayTime)
-                    {
-                        Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/Cavern");
-                        Priority = SceneEffectPriority.Event;
-                    }
-                    else if (Main.LocalPlayer.ZoneDungeon && Main.LocalPlayer.ZoneDirtLayerHeight)
-                    {
-                        Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/Cavern");
-                        Priority = SceneEffectPriority.Event;
-                    }
-                    else if (Main.LocalPlayer.ZoneDungeon && Main.LocalPlayer.ZoneJungle)
-                    {
-                        Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/Dungeon");
-                        Priority = SceneEffectPriority.Event;
-                    }
-                    
-
-                    //dungeon
-                    if (Main.LocalPlayer.ZoneDungeon && Main.LocalPlayer.ZoneJungle)
-                    {
-                        Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/ForgottenCity");
-                        Priority = SceneEffectPriority.BiomeHigh; //was environment
-                    }
-                    */
-                    //sky temple in hell
+                 
+                    // sky temple in hell
                     else if (Main.LocalPlayer.ZoneDungeon && Main.LocalPlayer.ZoneUnderworldHeight)
                     {
                         Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/SkyTemple");
                         Priority = SceneEffectPriority.BossLow;
                     }
-                    //dungeon and corrupt
+
+                    // dungeon and corrupt
                     if (Main.LocalPlayer.ZoneDungeon && Main.LocalPlayer.ZoneCorrupt)
                     {
                         Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/Dungeon");
                         Priority = SceneEffectPriority.BiomeHigh;
                     }
-                    //meteor day and night
+
+                    // meteor day and night
                     if (Main.LocalPlayer.ZoneMeteor && Main.dayTime)
                     {
                         Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/Eerie");
@@ -257,7 +241,8 @@ namespace tsorcMusic
                         Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/UndergroundEerie");
                         Priority = SceneEffectPriority.Environment;
                     }
-                    //new jungle code
+
+                    // jungle 
                     if (Main.LocalPlayer.ZoneJungle && !Main.LocalPlayer.ZoneDungeon && !Main.LocalPlayer.ZoneMeteor && Main.LocalPlayer.ZoneOverworldHeight)
                     {
                         Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/Jungle");
@@ -272,61 +257,11 @@ namespace tsorcMusic
                     {
                         Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/UndergroundJungle");
                         Priority = SceneEffectPriority.BiomeLow;
-                    }
-                    
+                    }                                    
 
-                    /*
-                    if (Main.LocalPlayer.ZoneJungle && !Main.LocalPlayer.ZoneMeteor && !Main.LocalPlayer.ZoneDungeon && !Main.LocalPlayer.ZoneBeach && !Main.LocalPlayer.ZoneDesert)
-                    {
-                        Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/Jungle");
-                        Priority = SceneEffectPriority.BiomeLow;
-                    }
-                    else if (Main.LocalPlayer.ZoneMeteor && Main.LocalPlayer.ZoneJungle)
-                    {
-                        Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/Eerie");
-                        Priority = SceneEffectPriority.Event;
-                    }
-                    else if (Main.LocalPlayer.ZoneJungle && !Main.LocalPlayer.ZoneMeteor && !Main.LocalPlayer.ZoneBeach && Main.LocalPlayer.ZoneOverworldHeight)
-                    {
-                        Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/Jungle");
-                        Priority = SceneEffectPriority.BiomeLow;
-                    }
-                    else if (Main.LocalPlayer.ZoneJungle && Main.LocalPlayer.ZoneMeteor && Main.LocalPlayer.ZoneOverworldHeight)
-                    {
-                        Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/Jungle");
-                        Priority = SceneEffectPriority.BiomeMedium;
-                    }
-                    else if (Main.LocalPlayer.ZoneJungle && !Main.LocalPlayer.ZoneMeteor && Main.LocalPlayer.ZoneDirtLayerHeight)
-                    {
-                        Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/Jungle");
-                        Priority = SceneEffectPriority.BiomeLow;
-                    }
-                    else if (Main.LocalPlayer.ZoneJungle && !Main.LocalPlayer.ZoneMeteor && !Main.LocalPlayer.ZoneDungeon && Main.LocalPlayer.ZoneRockLayerHeight && Main.dayTime)
-                    {
-                        Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/UndergroundJungle");
-                        Priority = SceneEffectPriority.BiomeHigh;
-                    }
-                    else if (Main.LocalPlayer.ZoneJungle && !Main.LocalPlayer.ZoneMeteor && !Main.LocalPlayer.ZoneDungeon && Main.LocalPlayer.ZoneRockLayerHeight && !Main.dayTime)
-                    {
-                        Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/Underground");
-                        Priority = SceneEffectPriority.BiomeHigh;
-                    }
-                    
-                    else if (Main.LocalPlayer.ZoneJungle && Main.LocalPlayer.ZoneDungeon && Main.LocalPlayer.ZoneRockLayerHeight && Main.dayTime)
-                    {
-                        Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/ForgottenCity");
-                        Priority = SceneEffectPriority.BiomeMedium; //was environment
-                    }
-                    else if (Main.LocalPlayer.ZoneJungle && Main.LocalPlayer.ZoneDungeon && Main.LocalPlayer.ZoneRockLayerHeight && !Main.dayTime)
-                    {
-                        Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/Underground");
-                        Priority = SceneEffectPriority.BiomeMedium;
-                    }
-                    */
+                    // snow
 
-                    //snow
-
-                    //snow above ground
+                    // snow above ground
                     if (Main.LocalPlayer.ZoneSnow && Main.LocalPlayer.ZoneOverworldHeight && Main.dayTime)
                     {
                         Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/UndergroundHallow");
@@ -342,7 +277,7 @@ namespace tsorcMusic
                         Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/Snow");
                         Priority = SceneEffectPriority.Event;
                     }
-                    //snow below ground
+                    // snow below ground
                     if (Main.LocalPlayer.ZoneSnow && Main.LocalPlayer.ZoneRockLayerHeight)
                     {
                         Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/UndergroundSnow");
@@ -352,13 +287,8 @@ namespace tsorcMusic
                     {
                         Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/Snow");
                         Priority = SceneEffectPriority.Event;
-                    }
-                    /*if (Main.LocalPlayer.ZoneCorrupt)
-                    {
-                        Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/Corruption");
-                        Priority = SceneEffectPriority.Environment;
-                    }*/
-                    //corruption or crimson
+                    }                 
+                    // corruption or crimson
                     if (Main.LocalPlayer.ZoneCorrupt && Main.LocalPlayer.ZoneOverworldHeight)
                     {
                         Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/Corruption");
@@ -399,7 +329,7 @@ namespace tsorcMusic
                         Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/Crimson");
                         Priority = SceneEffectPriority.BiomeMedium;
                     }
-                    //underworld day and night
+                    // underworld day and night
                     else if (Main.LocalPlayer.ZoneUnderworldHeight && Main.dayTime)
                     {
                         Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/Underworld");
@@ -410,7 +340,7 @@ namespace tsorcMusic
                         Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/UndergroundCrimson");
                         Priority = SceneEffectPriority.Event;
                     }
-                    //glowshroom above ground
+                    // glowshroom above ground
                     if (Main.LocalPlayer.ZoneGlowshroom && Main.LocalPlayer.ZoneOverworldHeight)
                     {
                         Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/Space");
@@ -431,22 +361,28 @@ namespace tsorcMusic
                         Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/UndergroundHallowOld");
                         Priority = SceneEffectPriority.BiomeHigh;
                     }
-                    //space
+                    // space
                     if (Main.LocalPlayer.ZoneSkyHeight)
                     {
                         Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/Space");
                         Priority = SceneEffectPriority.Environment;
                     }
-                    //rain but not crimson or corruption
+                    // graveyard
+                    if (Main.LocalPlayer.ZoneGraveyard)
+                    {
+                        Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/Catacombs");
+                        Priority = SceneEffectPriority.Environment;
+                    }
+                    // rain but not crimson or corruption
                     if (Main.LocalPlayer.ZoneRain && !Main.LocalPlayer.ZoneCrimson && !Main.LocalPlayer.ZoneCorrupt)
                     {
                         Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/Rain");
                         Priority = SceneEffectPriority.BiomeMedium;
                     }
-                    //underground but not anything else
+                    // underground but not anything else
                     if (Main.LocalPlayer.ZoneDirtLayerHeight && !Main.LocalPlayer.ZoneBeach && !Main.LocalPlayer.ZoneSnow && !Main.LocalPlayer.ZoneCorrupt && !Main.LocalPlayer.ZoneCrimson && !Main.LocalPlayer.ZoneDesert && !Main.LocalPlayer.ZoneDungeon && !Main.LocalPlayer.ZoneGlowshroom && !Main.LocalPlayer.ZoneHallow && !Main.LocalPlayer.ZoneJungle && !Main.LocalPlayer.ZoneMeteor && !Main.LocalPlayer.ZoneOldOneArmy && !Main.LocalPlayer.ZoneTowerNebula && !Main.LocalPlayer.ZoneTowerSolar && !Main.LocalPlayer.ZoneTowerVortex && !Main.LocalPlayer.ZoneTowerStardust && !Main.LocalPlayer.ZoneUnderworldHeight)
                     {
-                        Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/Underground");
+                        Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/Tunnels");
                         Priority = SceneEffectPriority.Event;
                     }
                     else if (Main.LocalPlayer.ZoneRockLayerHeight && !Main.LocalPlayer.ZoneBeach && !Main.LocalPlayer.ZoneSnow && !Main.LocalPlayer.ZoneCorrupt && !Main.LocalPlayer.ZoneCrimson && !Main.LocalPlayer.ZoneDesert && !Main.LocalPlayer.ZoneDungeon && !Main.LocalPlayer.ZoneGlowshroom && !Main.LocalPlayer.ZoneHallow && !Main.LocalPlayer.ZoneJungle && !Main.LocalPlayer.ZoneMeteor && !Main.LocalPlayer.ZoneOldOneArmy && !Main.LocalPlayer.ZoneTowerNebula && !Main.LocalPlayer.ZoneTowerSolar && !Main.LocalPlayer.ZoneTowerVortex && !Main.LocalPlayer.ZoneTowerStardust && !Main.LocalPlayer.ZoneUnderworldHeight)
@@ -455,61 +391,87 @@ namespace tsorcMusic
                         Priority = SceneEffectPriority.Event;
                     }
 
-                    //pillars
+                    // checking if the bottom two are needed
+                    // normal dirt layer
+                    /*
+                    if (Main.LocalPlayer.ZoneNormalUnderground)
+                    {
+                        Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/Tunnels");
+                        Priority = SceneEffectPriority.Environment;
+                    }
+
+                    // normal rock layer
+                    if (Main.LocalPlayer.ZoneNormalCaverns)
+                    {
+                        Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/Underground");
+                        Priority = SceneEffectPriority.Environment;
+                    }
+                    */
+                    // pillars
                     if (Main.LocalPlayer.ZoneTowerNebula || Main.LocalPlayer.ZoneTowerSolar || Main.LocalPlayer.ZoneTowerStardust || Main.LocalPlayer.ZoneTowerVortex)
                     {
                         Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/Pillars");
                         Priority = SceneEffectPriority.BossHigh;
                     }
-
-                    //special areas
+               
+                    // special areas
                     int playerX = (int)(Main.LocalPlayer.Center.X / 16f);
                     int playerY = (int)(Main.LocalPlayer.Center.Y / 16f);
 
-                    //village, plus "towns" with 3 or more npcs anywhere
+                    // village, plus "towns" with 3 or more npcs anywhere
                     if ((playerX > 3999 && playerX < 4393 && playerY > 600 && playerY < 788) || Main.LocalPlayer.townNPCs > 2) //X - left then right coordinate, higher in the sky then lower in ground number
                     {
-                        if (Main.dayTime)
+                        if (Main.dayTime && !Main.hardMode)
                         {
                             Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/VillageDay"); //Set town day music
                             Priority = SceneEffectPriority.BiomeMedium; //Set priority
                         }
-                        else
+                        if (Main.dayTime && Main.hardMode)
+                        {
+                            Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/RoundtableHold"); //Set town day music after Red fucks up
+                            Priority = SceneEffectPriority.BiomeMedium; //Set priority
+                        }
+                        if (!Main.dayTime)
                         {
                             Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/VillageNight"); //Set town night music
                             Priority = SceneEffectPriority.BiomeMedium; //Set priority
                         }
                     }
 
-                    //forgotten city pre-HM
-                    if (!Main.hardMode && (Main.LocalPlayer.ZoneDungeon || (Main.LocalPlayer.ZoneDungeon && Main.LocalPlayer.ZoneJungle)))
+                    // forgotten city pre-HM
+                    if (Main.dayTime && !Main.hardMode && !Main.LocalPlayer.ZoneSnow && (Main.LocalPlayer.ZoneDungeon || (Main.LocalPlayer.ZoneDungeon && Main.LocalPlayer.ZoneJungle)))
                     {
                         Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/ForgottenCity");
                         Priority = SceneEffectPriority.Event;
                     }
+                    if (!Main.dayTime && !Main.hardMode && !Main.LocalPlayer.ZoneSnow && (Main.LocalPlayer.ZoneDungeon || (Main.LocalPlayer.ZoneDungeon && Main.LocalPlayer.ZoneJungle)))
+                    {
+                        Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/GreatUndergroundRivers");
+                        Priority = SceneEffectPriority.Event;
+                    }
 
-                    //forgotten City HM
-                    if (Main.hardMode && (Main.LocalPlayer.ZoneDungeon || (Main.LocalPlayer.ZoneDungeon && Main.LocalPlayer.ZoneJungle)))
+                    // forgotten City HM
+                    if (Main.hardMode && (Main.LocalPlayer.ZoneDungeon && !Main.LocalPlayer.ZoneSnow || (Main.LocalPlayer.ZoneDungeon && Main.LocalPlayer.ZoneJungle)))
                     {
                         Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/Boss10");
                         Priority = SceneEffectPriority.Event;
                     }
 
-                    //wyvern mage fortress
+                    // wyvern mage fortress
                     if (playerX > 6336 && playerX < 7385 && playerY > 90 && playerY < 608)
                     {
                             Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/WyvernMageFortress"); 
                             Priority = SceneEffectPriority.BiomeHigh; //Set priority
                     }
 
-                    //jungle village
+                    // jungle village
                     if (playerX > 5805 && playerX < 5980 && playerY > 740 && playerY < 900)
                     {
                         Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/JungleVillage");
                         Priority = SceneEffectPriority.BiomeHigh; //Set priority
                     }
 
-                    //ashen caves
+                    // ashen caves
                     if (playerX > 2439 && playerX < 3100 && playerY > 1733 && playerY < 1920)
                     {
                         Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/Caverns");
@@ -517,14 +479,14 @@ namespace tsorcMusic
                     }
 
 
-                    //sky temple
+                    // sky temple
                     if ((playerX > 1421 && playerX < 4973 && playerY < 470) || (playerX > 1200 && playerX < 2491 && playerY < 430) || (playerX > 44 && playerX < 1015 && playerY < 580)) // empress of light, attraidies sky temple plus vortex island to the right of attraidies, wise man and island far left
                     {
                         Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/SkyTemple");
                         Priority = SceneEffectPriority.BiomeMedium; //Set priority
                     }
 
-                    //molten sky temple
+                    // molten sky temple
                     if (Main.hardMode && Main.tile.Width > playerX && Main.tile.Height > playerY)
                     {
                         if (playerY > 1685 && Main.tile[playerX, playerY] != null && (Main.tile[playerX, playerY].WallType == WallID.PinkDungeonSlabUnsafe || Main.tile[playerX, playerY].WallType == WallID.StarlitHeavenWallpaper))
@@ -534,7 +496,7 @@ namespace tsorcMusic
                         }
                     }
 
-                    //water temple
+                    // water temple
                     if (Main.hardMode && Main.tile.Width > playerX && Main.tile.Height > playerY)
                     {
                         if (Main.tile[playerX, playerY] != null && (Main.tile[playerX, playerY].WallType == WallID.GreenDungeonTileUnsafe || Main.tile[playerX, playerY].WallType == WallID.GreenDungeonSlabUnsafe) || (Main.tile[playerX, playerY].WallType == WallID.IceUnsafe && Main.tile[playerX, playerY].WallType == WallID.GreenDungeonTileUnsafe || Main.tile[playerX, playerY].WallType == WallID.GreenDungeonSlabUnsafe))
@@ -544,7 +506,7 @@ namespace tsorcMusic
                         }
                     }
 
-                    //shadow temple
+                    // shadow temple
                     if (Main.hardMode && Main.tile.Width > playerX && Main.tile.Height > playerY)
                     {
                         if (Main.tile[playerX, playerY] != null && (Main.tile[playerX, playerY].WallType == WallID.PinkDungeonUnsafe || Main.tile[playerX, playerY].WallType == WallID.Crystal))
@@ -554,38 +516,38 @@ namespace tsorcMusic
                         }
                     }
 
-                    //the catacombs
+                    // catacombs of the deep (SHM)
                     if (Main.tile.Width > playerX && Main.tile.Height > playerY) 
                     {
                         if (Main.tile[playerX, playerY] != null && (Main.tile[playerX, playerY].WallType == WallID.PinkDungeonTileUnsafe))
                         {
-                            Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/Eerie");
+                            Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/Catacombs");
                             Priority = SceneEffectPriority.BossLow;
                         }
                     }
 
-                    //pyramid
+                    // pyramid
                     if ((playerX > 5665 && playerX < 6025 && playerY > 1600 && playerY < 1805) || (playerX > 6000 && playerX < 6123 && playerY > 1671 && playerY < 1800))
                     {
                         Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/Ending");
                         Priority = SceneEffectPriority.BossLow; //Set priority
                     }
 
-                    //old one's tree
+                    // old one's tree
                     if (playerX > 2535 && playerX < 2850 && playerY > 1055 && playerY < 1550)
                     {
                         Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/OldOnesTree");
                         Priority = SceneEffectPriority.BossLow; //Set priority
                     }
 
-                    //dark tower
+                    // dark tower
                     if (playerX > 1310 && playerX < 1460 && playerY > 354 && playerY < 864)
                     {
                         Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/DarkTower");
                         Priority = SceneEffectPriority.BossLow; //Set priority
                     }
 
-                    //lihzahrd temple
+                    // lihzahrd temple
                     if (Main.tile.Width > playerX && Main.tile.Height > playerY)
                     {
                         if (Main.tile[playerX, playerY] != null && (Main.tile[playerX, playerY].WallType == WallID.LihzahrdBrickUnsafe || Main.tile[playerX, playerY].WallType == WallID.DiscWall) && !NPC.AnyNPCs(245))
@@ -595,7 +557,7 @@ namespace tsorcMusic
                         }
                     }
 
-                    //tomb of gwyn
+                    // tomb of gwyn
                     if (!Main.LocalPlayer.ZoneOverworldHeight && Main.tile.Width > playerX && Main.tile.Height > playerY)
                     {
                         if (Main.tile[playerX, playerY] != null && (Main.tile[playerX, playerY].WallType == WallID.ObsidianBrickUnsafe || Main.tile[playerX, playerY].WallType == WallID.TitanstoneBlock))
@@ -605,7 +567,7 @@ namespace tsorcMusic
                         }
                     }
 
-                    //frozen ocean above ground
+                    // frozen ocean above ground
                     if (Main.tile.Width > playerX && Main.tile.Height > playerY)
                     {
                         if (playerX > 7600 && playerX < 8370 && playerY > 567 && playerY < 1170 && !Main.dayTime)
@@ -620,10 +582,10 @@ namespace tsorcMusic
                         }
                     }
 
-                    //if in burnt village and haven't beaten EoC, EoW or Skelebones
-                    if (playerX > 4777 && playerX < 4955 && playerY > 823 && playerY < 883 && (!NPC.downedBoss1 || !NPC.downedBoss2 || !NPC.downedBoss3)) 
+                    // if in burnt village and haven't beaten EoC, EoW or Skelebones
+                    if (playerX > 4773 && playerX < 4955 && playerY > 823 && playerY < 883 && (!NPC.downedBoss1 || !NPC.downedBoss2 || !NPC.downedBoss3)) 
                     {
-                        Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/Night");
+                        Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/Opening");
                         Priority = SceneEffectPriority.BossLow;
                     }
 
@@ -636,7 +598,7 @@ namespace tsorcMusic
                     //	}
 
 
-                    //Vanilla Enemies
+                    // Vanilla Enemies
                     if (NPC.AnyNPCs(343)) // Yeti
                     {
                         Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/Cavern");
@@ -760,12 +722,22 @@ namespace tsorcMusic
                     }
 
                     // Events
-                    if (Main.bloodMoon && Main.LocalPlayer.ZoneOverworldHeight) // Blood Moon
+                    
+
+                    // Old One Army
+                    if (Main.bloodMoon && Main.LocalPlayer.ZoneOldOneArmy) 
+                    {
+                        Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/Boss19");
+                        Priority = SceneEffectPriority.Event;
+                    }
+                    // Blood Moon
+                    if (Main.bloodMoon && Main.LocalPlayer.ZoneOverworldHeight)
                     {
                         Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/Pillars");
                         Priority = SceneEffectPriority.Event;
                     }
-                    if (Main.eclipse && Main.dayTime && Main.LocalPlayer.ZoneOverworldHeight) // Eclipse
+                    // Eclipse
+                    if (Main.eclipse && Main.dayTime && Main.LocalPlayer.ZoneOverworldHeight) 
                     {
                         Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/Space");
                         Priority = SceneEffectPriority.Event;
@@ -776,6 +748,12 @@ namespace tsorcMusic
                         Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/Boss6");
                         Priority = SceneEffectPriority.BossMedium;
                     }
+                    // Torch God
+                    if (Main.LocalPlayer.happyFunTorchTime)
+                    {
+                        Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/Invader");
+                        Priority = SceneEffectPriority.BossHigh;
+                    }
 
                     // Red Cloud Music
 
@@ -785,32 +763,50 @@ namespace tsorcMusic
                     {
                         // Red Cloud Boss Music
 
+                        // Pinwheel
+                        if (NPC.AnyNPCs(tsorcRevamp.Find<ModNPC>("Pinwheel").Type))
+                        {
+                            Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/Boss18");
+                            Priority = SceneEffectPriority.BossMedium;
+                        }                      
+
                         // The Machine
                         if (NPC.AnyNPCs(tsorcRevamp.Find<ModNPC>("TheMachine").Type))
                         {
                             Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/Boss11");
                             Priority = SceneEffectPriority.BossMedium;
-                        }                       
+                        }  
+                        
                         // Red Knight 
                         if (NPC.AnyNPCs(tsorcRevamp.Find<ModNPC>("RedKnight").Type))
                         {
                             Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/Sandstorm");
                             Priority = SceneEffectPriority.BossLow;
                         }
+
                         // Great Red Knight 
                         if (NPC.AnyNPCs(tsorcRevamp.Find<ModNPC>("GreatRedKnight").Type))
                         {
                             Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/Boss13");
                             Priority = SceneEffectPriority.BossMedium;
                         }
+
                         // Black Knight
                         if (NPC.AnyNPCs(tsorcRevamp.Find<ModNPC>("BlackKnight").Type))
                         {
                             Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/Boss15");
                             Priority = SceneEffectPriority.BossMedium;
                         }
+
                         // Leonhard Phase 1
                         if (NPC.AnyNPCs(tsorcRevamp.Find<ModNPC>("LeonhardPhase1").Type))
+                        {
+                            Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/Invader");
+                            Priority = SceneEffectPriority.BossMedium;
+                        }
+
+                        // Lothric Black Knight
+                        if (NPC.AnyNPCs(tsorcRevamp.Find<ModNPC>("LothricBlackKnight").Type))
                         {
                             Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/Invader");
                             Priority = SceneEffectPriority.BossMedium;
@@ -847,7 +843,8 @@ namespace tsorcMusic
                             Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/Boss10");
                             Priority = SceneEffectPriority.BossMedium;
                         }
-                        //The Triad
+
+                        // The Triad
                         if (NPC.AnyNPCs(tsorcRevamp.Find<ModNPC>("Cataluminance").Type) || NPC.AnyNPCs(tsorcRevamp.Find<ModNPC>("RetinazerV2").Type) || NPC.AnyNPCs(tsorcRevamp.Find<ModNPC>("SpazmatismV2").Type))
                         {
                             Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/Boss9");
@@ -880,9 +877,10 @@ namespace tsorcMusic
                         }
                         if (NPC.AnyNPCs(tsorcRevamp.Find<ModNPC>("SerrisHead").Type) || NPC.AnyNPCs(tsorcRevamp.Find<ModNPC>("SerrisX").Type)) // Serris X
                         {
-                            Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/Boss17");
+                            Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/Boss19");
                             Priority = SceneEffectPriority.BossMedium;
                         }
+
                         //Fiends
                         if (NPC.AnyNPCs(tsorcRevamp.Find<ModNPC>("EarthFiendLich").Type) || NPC.AnyNPCs(tsorcRevamp.Find<ModNPC>("LichKingDisciple").Type) || NPC.AnyNPCs(tsorcRevamp.Find<ModNPC>("LichKingSerpentHead").Type))
                         {
@@ -916,12 +914,12 @@ namespace tsorcMusic
                         }
                         if (NPC.AnyNPCs(tsorcRevamp.Find<ModNPC>("WyvernMageShadow").Type) || NPC.AnyNPCs(tsorcRevamp.Find<ModNPC>("GhostDragonHead").Type))
                         {
-                            Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/Boss14");
+                            Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/God-DevouringSerpent");
                             Priority = SceneEffectPriority.BossMedium;
                         }
                         if (NPC.AnyNPCs(tsorcRevamp.Find<ModNPC>("HellkiteDragonHead").Type))
                         {
-                            Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/Invader");
+                            Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/God-DevouringSerpent");
                             Priority = SceneEffectPriority.BossMedium;
                         }
                         if (NPC.AnyNPCs(tsorcRevamp.Find<ModNPC>("SeathTheScalelessHead").Type) || NPC.AnyNPCs(tsorcRevamp.Find<ModNPC>("PrimordialCrystal").Type))
@@ -939,6 +937,7 @@ namespace tsorcMusic
                             Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/Boss8");
                             Priority = SceneEffectPriority.BossMedium;
                         }
+
                         //Attraidies 4 phases
                         if (NPC.AnyNPCs(tsorcRevamp.Find<ModNPC>("DarkShogunMask").Type)) //phase 1
                         {
