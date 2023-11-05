@@ -371,10 +371,10 @@ namespace tsorcMusic
                     if (Main.LocalPlayer.ZoneGraveyard)
                     {
                         Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/Catacombs");
-                        Priority = SceneEffectPriority.Environment;
+                        Priority = SceneEffectPriority.BiomeHigh;
                     }
-                    // rain but not crimson or corruption
-                    if (Main.LocalPlayer.ZoneRain && !Main.LocalPlayer.ZoneCrimson && !Main.LocalPlayer.ZoneCorrupt)
+                    // rain but not crimson or corruption and above ground! (makes no sense to hear it below ground haha ;P)
+                    if (Main.LocalPlayer.ZoneRain && Main.LocalPlayer.ZoneOverworldHeight && !Main.LocalPlayer.ZoneCrimson && !Main.LocalPlayer.ZoneCorrupt)
                     {
                         Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/Rain");
                         Priority = SceneEffectPriority.BiomeMedium;
@@ -419,7 +419,7 @@ namespace tsorcMusic
                     int playerY = (int)(Main.LocalPlayer.Center.Y / 16f);
 
                     // village, plus "towns" with 3 or more npcs anywhere
-                    if ((playerX > 3999 && playerX < 4393 && playerY > 600 && playerY < 788) || Main.LocalPlayer.townNPCs > 2) //X - left then right coordinate, higher in the sky then lower in ground number
+                    if ((playerX > 3999 && playerX < 4393 && playerY > 600 && playerY < 765) || Main.LocalPlayer.townNPCs > 2) //X - left then right coordinate, higher in the sky then lower in ground number
                     {
                         if (Main.dayTime && !Main.hardMode)
                         {
