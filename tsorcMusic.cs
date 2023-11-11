@@ -325,7 +325,7 @@ namespace tsorcMusic
                     }
                     else if (Main.LocalPlayer.ZoneCrimson && Main.LocalPlayer.ZoneRockLayerHeight)
                     {
-                        Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/UndergroundCrimson");
+                        Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/Crimson");
                         Priority = SceneEffectPriority.BiomeHigh;
                     }
                     if (Main.LocalPlayer.ZoneCrimson && Main.LocalPlayer.ZoneJungle)
@@ -341,7 +341,7 @@ namespace tsorcMusic
                     }
                     else if (Main.LocalPlayer.ZoneUnderworldHeight && !Main.dayTime)
                     {
-                        Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/UndergroundCrimson");
+                        Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/MetroidUndergroundDepths");
                         Priority = SceneEffectPriority.Event;
                     }
                     // glowshroom above ground
@@ -419,9 +419,14 @@ namespace tsorcMusic
                             Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/RoundtableHold"); //Set town day music after Red fucks up
                             Priority = SceneEffectPriority.BiomeMedium; //Set priority
                         }
-                        if (!Main.dayTime)
+                        if (!Main.dayTime && Main.hardMode)
                         {
-                            Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/VillageNight"); //Set town night music
+                            Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/VillageNight"); //Set town night music for hardmode
+                            Priority = SceneEffectPriority.BiomeMedium; //Set priority
+                        }
+                        if (!Main.dayTime && !Main.hardMode)
+                        {
+                            Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/FirelinkShrine"); //Set town night music for pre-HM
                             Priority = SceneEffectPriority.BiomeMedium; //Set priority
                         }
                     }
@@ -546,7 +551,7 @@ namespace tsorcMusic
                     }
 
                     // tomb of gwyn
-                    if (!Main.LocalPlayer.ZoneOverworldHeight && Main.tile.Width > playerX && Main.tile.Height > playerY)
+                    if (!Main.LocalPlayer.ZoneUnderworldHeight && !Main.LocalPlayer.ZoneOverworldHeight && Main.tile.Width > playerX && Main.tile.Height > playerY)
                     {
                         if (Main.tile[playerX, playerY] != null && (Main.tile[playerX, playerY].WallType == WallID.ObsidianBrickUnsafe || Main.tile[playerX, playerY].WallType == WallID.TitanstoneBlock))
                         {
@@ -835,7 +840,7 @@ namespace tsorcMusic
                         // The Triad
                         if (NPC.AnyNPCs(tsorcRevamp.Find<ModNPC>("Cataluminance").Type) || NPC.AnyNPCs(tsorcRevamp.Find<ModNPC>("RetinazerV2").Type) || NPC.AnyNPCs(tsorcRevamp.Find<ModNPC>("SpazmatismV2").Type))
                         {
-                            Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/Boss9");
+                            Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/Boss8"); // trying boss 8 instead of 9 since 8 is only used 1 other time and it's too good to only hear once
                             Priority = SceneEffectPriority.BossMedium;
                         }
                         if (NPC.AnyNPCs(tsorcRevamp.Find<ModNPC>("Artorias").Type))
@@ -922,7 +927,7 @@ namespace tsorcMusic
                         }
                         if (NPC.AnyNPCs(tsorcRevamp.Find<ModNPC>("Gwyn").Type))
                         {
-                            Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/Boss8");
+                            Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/Gwyn");
                             Priority = SceneEffectPriority.BossMedium;
                         }
 

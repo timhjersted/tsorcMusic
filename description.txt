@@ -62,17 +62,23 @@ Dungeon / Ocarina of Time - Spirit Temple Reorchestrated / Majora's Mask - Stone
 
 Eerie / "Elden Ring: Prison Town" (From Software)
 
+FirelinkShrine / "Dark Souls: Fire Link Shrine" (From Software, reorchestrated by Pontus Hultgren Music)
+
 Forgotten City / "Elden Ring: Eternal City" (From Software)
 
 God-DevouringSerpent / "Elden Ring: God-Devouring Serpent" (From Software)
 
 GreatUndergroundRivers / "Elden Ring: Great Underground Rivers" (From Software)
 
+Gwyn / "Dark Souls: Gwyn" (From Software)
+
 Hallow / "Elden Ring: Altus_Plateau" (From Software)
 
 Hallow (OLD) / "Skyward Sword - Skyview Temple Reorchestrated" (ZREO)
 
 Jungle / "Ocarina of Time - Fire Temple Reorchestrated" (ZREO)
+
+MetroidUndergroundDepths / "Super Metroid: Underground Depths" (Remix/cover by Pontus Hultgren Music / Nintendo)
 
 Mushrooms / "The Legend of Zelda: Skyward Sword - Goddess Mission" (Hajime Wakai, Shibo Fujii, Mahito Yokota, Takeshi Hama, Koji Kondo)
 
@@ -101,8 +107,6 @@ Pillars / "Dark Souls - The Ancient Dragon" (From Software)
 Underground / "Ocarina of Time - Forest Temple Reorchestrated" (ZREO)
 
 Underground Corruption / "Twilight Princess - Arbiters Grounds" (Nintendo)
-
-Underground Crimson / "Brinstar - Underground Depths" (The Blake Robinson Synthetic Orchestra) mixed with "Dark Souls Ambient Sounds  - Pinwheels Sarcophagus (From Software)"
 
 Underground Desert / "Desert Temple - Minecraft Dungeons" (Johan Johnson)
 
@@ -143,6 +147,7 @@ ____________________
 
 
 Removed:
+-Underground Crimson / "Brinstar - Underground Depths" (The Blake Robinson Synthetic Orchestra) mixed with "Dark Souls Ambient Sounds  - Pinwheels Sarcophagus (From Software)"
 -Boss 1 (OLD) / Ocarina of Time - Battle Reorchestrated (ZREO)
 -Boss 2 (OLD) / Ocarina of Time - Ganon Battle Theme Reorchestrated (ZREO)
 -Boss 3 (OLD) / A Link to the Past - Boss Battle Reorchestrated (ZREO)
