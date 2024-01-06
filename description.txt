@@ -78,7 +78,7 @@ Hallow (OLD) / "Skyward Sword - Skyview Temple Reorchestrated" (ZREO)
 
 Jungle / "Ocarina of Time - Fire Temple Reorchestrated" (ZREO)
 
-MetroidUndergroundDepths / "Super Metroid: Underground Depths" (Remix/cover by Pontus Hultgren Music / Nintendo)
+MetroidUndergroundDepths / "Super Metroid: Underground Depths"(Original by Nintendo, Remix/cover by Pontus Hultgren Music)
 
 Mushrooms / "The Legend of Zelda: Skyward Sword - Goddess Mission" (Hajime Wakai, Shibo Fujii, Mahito Yokota, Takeshi Hama, Koji Kondo)
 
@@ -116,7 +116,9 @@ Underground Jungle / "World of Warcraft: Stranglethorn Vale" (Blizzard Entertain
 
 Underground Hallow / "Elden Ring: Liurnia of the Lakes" (From Software)
 
-Underground Hallow (OLD) / "The Minish Cap - Temple of Droplets Reorchestrated" (ZREO) / "Ocarina of Time - Water Temple Reorchestrated" (ZREO) / "Oracle of Ages - Nayru's Song Reorchestrated"  (ZREO)
+Underground Hallow (OLD) / "The Minish Cap - Temple of Droplets Reorchestrated" (ZREO) / "Ocarina of Time - Water 
+
+Temple Reorchestrated" (ZREO) / "Oracle of Ages - Nayru's Song Reorchestrated"  (ZREO)
 
 Underground Mushrooms / "Ocarina of Time - Temple of Time" (ZREO)
 
@@ -135,8 +137,8 @@ Water Temple / "Elden Ring: Consecrated Snowfield" (From Software)
 Wyvern Mage Fortress / "Elden Ring: Academy of Raya Lucaria" (From Software)
 
 
-ZREO =  Zelda Reorchestrated : http://www.zreomusic.com/
-
+ZREO =  Zelda Reorchestrated: http://www.zreomusic.com/
+Pontus Hultgren Music: https://www.youtube.com/@PontusHultgren
 
 Mixed in as transitions in certain songs
 ____________________

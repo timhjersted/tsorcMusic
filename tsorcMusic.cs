@@ -465,11 +465,11 @@ namespace tsorcMusic
                     }
 
                     // ashen caves
-                    if (playerX > 2439 && playerX < 3100 && playerY > 1733 && playerY < 1920)
-                    {
-                        Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/Caverns");
-                        Priority = SceneEffectPriority.BiomeHigh; //Set priority
-                    }
+                    //if (playerX > 2439 && playerX < 3100 && playerY > 1733 && playerY < 1920)
+                    //{
+                    //    Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/Caverns");
+                    //    Priority = SceneEffectPriority.BiomeHigh; //Set priority
+                    //}
 
 
                     // sky temple
@@ -551,7 +551,7 @@ namespace tsorcMusic
                     }
 
                     // tomb of gwyn
-                    if (!Main.LocalPlayer.ZoneUnderworldHeight && !Main.LocalPlayer.ZoneOverworldHeight && Main.tile.Width > playerX && Main.tile.Height > playerY)
+                    if (!Main.LocalPlayer.ZoneUnderworldHeight && playerY < 1700 && !Main.LocalPlayer.ZoneOverworldHeight && Main.tile.Width > playerX && Main.tile.Height > playerY)
                     {
                         if (Main.tile[playerX, playerY] != null && (Main.tile[playerX, playerY].WallType == WallID.ObsidianBrickUnsafe || Main.tile[playerX, playerY].WallType == WallID.TitanstoneBlock))
                         {
@@ -559,6 +559,7 @@ namespace tsorcMusic
                             Priority = SceneEffectPriority.BossLow;
                         }
                     }
+                  
 
                     // frozen ocean above ground
                     if (Main.tile.Width > playerX && Main.tile.Height > playerY)
