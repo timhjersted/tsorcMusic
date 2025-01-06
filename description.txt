@@ -1,5 +1,8 @@
 This is the music soundtrack for The Story of Red Cloud, compiled and audio-mixed by Vibrent. All credit and thanks for these songs go to the original composers and remixers and are used here under Fair Use.
 
+Join our Discord: https://discord.com/invite/kSptDbe
+Discuss the mod or make suggestions in #music
+
 Version compatibility: tModLoader 1.4.4 & Terraria 1.4.4.9
 Coding by: RecursiveCollapse and Vibrent
 Contact: Vibrent#7623 on Discord.com
@@ -164,3 +167,6 @@ Removed:
 -Underground Eerie (OLD) / "Great Bay Temple, TLOZ: Majora's Mask" (Koji Kondo, Nintendo)
 -Underground Jungle (OLD) / "Forest Temple - The Legend of Zelda - Twilight Princess- " (Nintendo)
 -Underworld (OLD) / "Pinwheels Sarcophagus - Ambient Sounds, Dark Souls" (From Software)
+
+Source Files:
+https://github.com/timhjersted/tsorcMusic
