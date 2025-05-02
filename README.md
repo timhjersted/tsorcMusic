@@ -1,0 +1,172 @@
+This is the music soundtrack for The Story of Red Cloud, compiled and audio-mixed by Vibrent. All credit and thanks for these songs go to the original composers and remixers and are used here under Fair Use.
+
+Join our Discord: https://discord.com/invite/kSptDbe
+Discuss the mod or make suggestions in #music
+
+Version compatibility: tModLoader 1.4.4 & Terraria 1.4.4.9
+Coding by: RecursiveCollapse and Vibrent
+Contact: Vibrent#7623 on Discord.com
+
+SONG CREDITS
+Titles in "". Author credit in ().
+____________________
+
+Boss 1 / "Dark Souls 3: Ludex Gundyr" (Tsukasa Saitoh / From Software)
+
+Boss 2 / "Battle of Stoicism" (Motoi Sakuraba / From Software) 
+
+Boss 3 / "Dark Souls 3: Abyss Watchers" (From Software)
+
+Boss 4 / "Bloodborne: The First Hunter" (From Software)
+
+Boss 5 / "Dark Souls 3: Slave Knight Gael" (From Software)
+
+Boss 6 / "Dark Souls: Knight Artorias" (From Software)
+
+Boss 7 / "Dark Souls 2: Sir Alonne" (From Software)
+
+Boss 8 / "Elden Ring: Starscourge Radahn" (From Software)
+
+Boss 9 / "Elden Ring: Mohg, Lord of Blood" (From Software)
+
+Boss 10 / "Elden Ring: Regal Ancestor" (From Software)
+
+Boss 11 / "Elden Ring: Morgot, the Omen King" (From Software)
+
+Boss 12 / "Elden Ring: Rennala, Queen of the Full Moon" (From Software)
+
+Boss 13 / "Elden Ring: Lords Apparition" (From Software)
+
+Boss 14 / "Elden Ring: Godskin Apostles" (From Software)
+
+Boss 15 / "Elden Ring: Death's Kindred" (From Software)
+
+Boss 16 / "Elden Ring: Fire Giant" (From Software)
+
+Boss 17 / "Elden Ring: Beast Clergyman" (From Software)
+
+Boss18 / "Dark Souls: Pinwheel" (From Software)
+
+Boss19 / "Elden Ring: Melania" (From Software)
+
+Catacombs / "Elden Ring: Catacombs (Yuka Kitamura - From Software)
+
+Cavern / "Metroid Prime 2 - Torvus Bog Entrance" (Kenji Yamamoto)
+
+Corruption / Dark Souls Abyss ambient sounds (From Software) + "Hive Tunnel - Metroid Prime 2" (Nintendo)
+
+Crimson / "Super Metroid: Crateria Zebes Planetfall (Interior)" (The Blake Robinson Synthetic Orchestra) 
+
+Dark Tower / "Elden Ring: Divine Tower" (From Software)
+
+Desert / "World of Warcraft: Desert Theme" (Blizzard Entertainment)
+
+Dungeon / Ocarina of Time - Spirit Temple Reorchestrated / Majora's Mask - Stone Tower Temple Reorchestrated (ZREO)
+
+Eerie / "Elden Ring: Prison Town" (From Software)
+
+FirelinkShrine / "Dark Souls: Fire Link Shrine" (From Software, reorchestrated by Pontus Hultgren Music)
+
+Forgotten City / "Elden Ring: Eternal City" (From Software)
+
+God-DevouringSerpent / "Elden Ring: God-Devouring Serpent" (From Software)
+
+GreatUndergroundRivers / "Elden Ring: Great Underground Rivers" (From Software)
+
+Gwyn / "Dark Souls: Gwyn" (From Software)
+
+Hallow / "Elden Ring: Altus_Plateau" (From Software)
+
+Hallow (OLD) / "Skyward Sword - Skyview Temple Reorchestrated" (ZREO)
+
+Jungle / "Ocarina of Time - Fire Temple Reorchestrated" (ZREO)
+
+JungleVillage / "World of Warcraft: Zuldazar" (Blizzard Entertainment)
+
+MetroidUndergroundDepths / "Super Metroid: Underground Depths"(Original by Nintendo, Remix/cover by Pontus Hultgren Music)
+
+Mushrooms / "The Legend of Zelda: Skyward Sword - Goddess Mission" (Hajime Wakai, Shibo Fujii, Mahito Yokota, Takeshi Hama, Koji Kondo)
+
+Night / "Skyward Sword - Separation" (Nintendo) / "Skyward Sword - Sealed Temple" (Nintendo)
+
+Ocean / "The Legend of Zelda: Skyward Sword - Sailing the Sand Sea"(Hajime Wakai, Shiho Fujii) mixed with desert wind sounds
+
+Old One's Tree / "Elden Ring: Song of Honor" (From Software)
+
+Overworld Day / "World of Warcraft: Elwynn Forest" (Blizzard Entertainment)
+
+Rain / "Faron Woods" (ZREO)
+
+Sandstorm / "Elden Ring: Black Knives" (From Software)
+
+Sky Temple / "Elden Ring: Lyndell Capital" (From Software)
+
+Tunnels / "Elden Ring: Tunnels" (Yuka Kitamura - From Software)
+
+Space / "Chozo Statue Awakens" (The Blake Robinson Synthetic Orchestra) 
+
+Pillars / "Dark Souls - The Ancient Dragon" (From Software)
+
+Underground / "Ocarina of Time - Forest Temple Reorchestrated" (ZREO)
+
+Underground Corruption / "Twilight Princess - Arbiters Grounds" (Nintendo)
+
+Underground Desert / "Desert Temple - Minecraft Dungeons" (Johan Johnson)
+
+Underground Eerie / "Elden Ring: Volcano Manor" (From Software)
+
+Underground Jungle / "World of Warcraft: Stranglethorn Vale" (Blizzard Entertainment)
+
+Underground Hallow / "Elden Ring: Liurnia of the Lakes" (From Software)
+
+Underground Hallow (OLD) / "The Minish Cap - Temple of Droplets Reorchestrated" (ZREO) / "Ocarina of Time - Water 
+
+Temple Reorchestrated" (ZREO) / "Oracle of Ages - Nayru's Song Reorchestrated"  (ZREO)
+
+Underground Mushrooms / "Ocarina of Time - Temple of Time" (ZREO)
+
+Snow / "Dark Souls: Crystal Caves Ambient Sounds" (From Software)
+
+Underground Snow / "Metroid Prime 2: Torvus Bog Subterranean Theme"  (Kenji Yamamoto)
+
+Underworld / "Elden Ring: Mr Gelmir" (From Software)
+
+Village Day / "Dark Souls: Main OST" (From Software)
+
+Village Night / "Dark Souls 2: Majula" (From Software)
+
+Water Temple / "Elden Ring: Consecrated Snowfield" (From Software)
+
+Wyvern Mage Fortress / "Elden Ring: Academy of Raya Lucaria" (From Software)
+
+
+ZREO =  Zelda Reorchestrated: http://www.zreomusic.com/
+Pontus Hultgren Music: https://www.youtube.com/@PontusHultgren
+
+Mixed in as transitions in certain songs
+____________________
+"Cave Ambience" (Jross aka Xeltic89)
+"Frog Chorus" (Echoes of Nature album by American Wilds)
+"Deep Woods" (Echoes of Nature album by American Wilds)  
+"Crickets" (Echoes of Nature album by American Wilds)
+
+
+Removed:
+-Opening / "Elden Ring: Opening" (From Software)
+-Underground Crimson / "Brinstar - Underground Depths" (The Blake Robinson Synthetic Orchestra) mixed with "Dark Souls Ambient Sounds  - Pinwheels Sarcophagus (From Software)"
+-Boss 1 (OLD) / Ocarina of Time - Battle Reorchestrated (ZREO)
+-Boss 2 (OLD) / Ocarina of Time - Ganon Battle Theme Reorchestrated (ZREO)
+-Boss 3 (OLD) / A Link to the Past - Boss Battle Reorchestrated (ZREO)
+-Desert (OLD) / "Forest Temple - The Legend of Zelda - Twilight Princess- " (Nintendo)
+-Ending (NEVER USED) / "Elden Ring: Ending" (From Software)
+-Eerie (OLD) / "Lakebed Temple  - The Legend of Zelda: Twilight Princess" (Koji Kondo)
+-Hallow (OLD) / "Skyward Sword - Skyview Temple Reorchestrated" (ZREO)
+-Overworld Day (OLD) / "A Link to the Past - Dark Overworld Theme Reorchestrated" (ZREO) / "The Minish Cap - Mt. Crenel Reorchestrated" (ZREO)
+-Sandstorm (OLD)/ "The Legend of Zelda Breath of the Wild - Attack on Vah Naboris" (Nintendo)
+-Snow (OLD) / "Dark Souls - Crystal Caves Ambient Sounds" (From Software)
+-Underground Eerie (OLD) / "Great Bay Temple, TLOZ: Majora's Mask" (Koji Kondo, Nintendo)
+-Underground Jungle (OLD) / "Forest Temple - The Legend of Zelda - Twilight Princess- " (Nintendo)
+-Underworld (OLD) / "Pinwheels Sarcophagus - Ambient Sounds, Dark Souls" (From Software)
+
+Source Files:
+https://github.com/timhjersted/tsorcMusic
