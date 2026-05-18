@@ -452,23 +452,30 @@ namespace tsorcMusic
                     }
 
                     // forgotten city pre-HM
-                    if (Main.dayTime && !Main.hardMode && !Main.LocalPlayer.ZoneSnow && (Main.LocalPlayer.ZoneDungeon || (Main.LocalPlayer.ZoneDungeon && Main.LocalPlayer.ZoneJungle)))
+                    if (!Main.LocalPlayer.ZoneOverworldHeight && !Main.LocalPlayer.ZoneUnderworldHeight && Main.dayTime && !Main.hardMode && !Main.LocalPlayer.ZoneSnow && Main.LocalPlayer.ZoneDungeon && Main.LocalPlayer.ZoneJungle)
                     {
                         Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/ForgottenCity");
                         Priority = SceneEffectPriority.Event;
                     }
-                    if (!Main.dayTime && !Main.hardMode && !Main.LocalPlayer.ZoneSnow && (Main.LocalPlayer.ZoneDungeon || (Main.LocalPlayer.ZoneDungeon && Main.LocalPlayer.ZoneJungle)))
+                    if (!Main.LocalPlayer.ZoneOverworldHeight && !Main.LocalPlayer.ZoneUnderworldHeight && !Main.dayTime && !Main.hardMode && !Main.LocalPlayer.ZoneSnow && Main.LocalPlayer.ZoneDungeon && Main.LocalPlayer.ZoneJungle)
                     {
                         Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/GreatUndergroundRivers");
                         Priority = SceneEffectPriority.Event;
                     }
 
-                    // forgotten City HM
-                    if (Main.hardMode && (Main.LocalPlayer.ZoneDungeon && !Main.LocalPlayer.ZoneSnow || (Main.LocalPlayer.ZoneDungeon && Main.LocalPlayer.ZoneJungle)))
+                    // pre-HM dungeon catch-all (no jungle overlap — handled above)
+                    if (!Main.hardMode && Main.LocalPlayer.ZoneDungeon)
                     {
-                        Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/Boss10");
+                        Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/ForgottenCity");
                         Priority = SceneEffectPriority.Event;
                     }
+
+                    // forgotten City HM
+                    //if (Main.hardMode && (Main.LocalPlayer.ZoneDungeon && !Main.LocalPlayer.ZoneSnow || (Main.LocalPlayer.ZoneDungeon && Main.LocalPlayer.ZoneJungle)))
+                    //{
+                    //    Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/Boss10");
+                    //    Priority = SceneEffectPriority.Event;
+                    //}
 
                     // wyvern mage fortress
                     if (playerX > 6336 && playerX < 7385 && playerY > 90 && playerY < 608)
@@ -645,7 +652,7 @@ namespace tsorcMusic
                     }
                     else if (NPC.AnyNPCs(668)) // Deerclops
                     {
-                        Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/Boss10");
+                        Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/Boss12");
                         Priority = SceneEffectPriority.BossLow;
                     }
                     else if (NPC.AnyNPCs(50)) // King Slime
@@ -761,6 +768,36 @@ namespace tsorcMusic
                     {
                         Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/Boss6");
                         Priority = SceneEffectPriority.BossMedium;
+                    }
+                    // Pirate Invasion (212 Pirate Deckhand, 216 Pirate Captain, 491 Flying Dutchman)
+                    if (NPC.AnyNPCs(212) || NPC.AnyNPCs(216) || NPC.AnyNPCs(491))
+                    {
+                        Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/Boss4");
+                        Priority = SceneEffectPriority.BossMedium;
+                    }
+                    // Pumpkin Moon (551 Mourning Wood, 552 Pumpking)
+                    if (NPC.AnyNPCs(551) || NPC.AnyNPCs(552))
+                    {
+                        Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/Boss10");
+                        Priority = SceneEffectPriority.BossMedium;
+                    }
+                    // Frost Moon (159 Everscream, 160 Santa-NK1, 161 Ice Queen)
+                    if (NPC.AnyNPCs(159) || NPC.AnyNPCs(160) || NPC.AnyNPCs(161))
+                    {
+                        Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/Boss4");
+                        Priority = SceneEffectPriority.BossMedium;
+                    }
+                    // Martian Madness (381 Martian Walker, 390 Martian Saucer)
+                    if (NPC.AnyNPCs(381) || NPC.AnyNPCs(390))
+                    {
+                        Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/Boss11");
+                        Priority = SceneEffectPriority.BossMedium;
+                    }
+                    // Slime Rain
+                    if (Main.slimeRain)
+                    {
+                        Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/Rain");
+                        Priority = SceneEffectPriority.BossLow;
                     }
                     // Torch God
                     if (Main.LocalPlayer.happyFunTorchTime)
@@ -896,7 +933,7 @@ namespace tsorcMusic
                         }
 
                         //Fiends
-                        if (NPC.AnyNPCs(tsorcRevamp.Find<ModNPC>("EarthFiendLich").Type) || NPC.AnyNPCs(tsorcRevamp.Find<ModNPC>("LichKingDisciple").Type) || NPC.AnyNPCs(tsorcRevamp.Find<ModNPC>("LichKingSerpentHead").Type))
+                        if (NPC.AnyNPCs(tsorcRevamp.Find<ModNPC>("EarthFiendLich").Type) || NPC.AnyNPCs(tsorcRevamp.Find<ModNPC>("LichKingSerpentHead").Type))
                         {
                             Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/Boss16");
                             Priority = SceneEffectPriority.BossMedium;
