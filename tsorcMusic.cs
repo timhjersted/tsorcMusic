@@ -104,6 +104,19 @@ namespace tsorcMusic
 
         public override bool IsSceneEffectActive(Player player)
         {
+            if (ModLoader.TryGetMod("tsorcRevamp", out Mod revamp))
+            {
+                bool remixWorld = revamp.Call("IsRemixWorld") is bool remix && remix;
+                bool revampOverride = revamp.Call("HasActiveMusicOverride") is bool active && active;
+
+                // The remix pack owns remix worlds when present. Registered revamp encounters
+                // are selected by tsorcRevamp so its registry always has precedence.
+                if ((remixWorld && ModLoader.HasMod("tsorcXelvaaMusic")) || revampOverride)
+                {
+                    return false;
+                }
+            }
+
             return true;
         }
         
