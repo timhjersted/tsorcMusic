@@ -1,1 +1,14 @@
+Mods: {
+	tsorcMusic: {
+		Configs: {
+			tsorcMusicConfig: {
+				DisplayName: TSORC Music Configuration
 
+				Debug: {
+					Label: Debug Mode
+					Tooltip: Displays music debug information (current track, active biomes, priority, triggering rule) in the bottom-left of the screen.
+				}
+			}
+		}
+	}
+}

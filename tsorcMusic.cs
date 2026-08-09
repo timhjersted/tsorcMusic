@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Reflection;
 using System.Runtime.CompilerServices;
@@ -8,27 +9,36 @@ using ReLogic.Content;
 //using tsorcRevamp;
 using Terraria;
 using Terraria.Audio;
+using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
-
-//[assembly: CompilationRelaxations(8)]
-//[assembly: RuntimeCompatibility(WrapNonExceptionThrows = true)]
-//[assembly: Debuggable(DebuggableAttribute.DebuggingModes.IgnoreSymbolStoreSequencePoints)]
-//[assembly: AssemblyVersion("0.0.0.0")]
+using Terraria.UI.Chat;
 
 namespace tsorcMusic
 {
     public class tsorcMusic : Mod
     {
-        public static tsorcMusic instance = new tsorcMusic
+        public static tsorcMusic instance;
+
+        public tsorcMusic()
         {
-            MusicAutoloadingEnabled = true
-        };
+            instance = this;
+            MusicAutoloadingEnabled = true;
+        }
+
+        public static readonly Dictionary<int, string> RegisteredTracks = new Dictionary<int, string>();
+
+        public static string GetTrackName(int slot)
+        {
+            if (RegisteredTracks.TryGetValue(slot, out string name))
+            {
+                return name;
+            }
+            return $"Vanilla/External ({slot})";
+        }
 
         public override string Name => "tsorcMusic";
-
-        
 
         public override void PostSetupContent()
         {           
@@ -43,30 +53,37 @@ namespace tsorcMusic
                 FieldInfo LastSelectedModMenuInfo = menuLoaderType.GetField("LastSelectedModMenu", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Static);
                 LastSelectedModMenuInfo.SetValue(null, modMenuList[3].FullName);
             }
-        }
 
-        public override void Close()
-        {
-            //This code prevented a crash in 1.3, which could happen if the modded main menu music was playing while the mod was unloaded.
-            //I'm unsure if this code will be necessary in 1.4, but if it is it'll probably need major edits. So it's staying disabled for now.
-            /*
-            int titleMusicIndex = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/Night");
-            int rainMusicIndex = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/Rain");
-            if (titleMusicIndex >= 0 && titleMusicIndex < Main.music.Length)
+            string[] trackNames = new string[]
             {
-                if (Main.music[titleMusicIndex].IsPlaying)
+                "VillageDay", "Night", "OverworldDay", "HardmodeNight", "Tunnels", "Desert", "Feralas",
+                "GreatUndergroundRivers", "UndergroundDesert", "Sandstorm", "Hallow", "UndergroundHallow",
+                "Ocean", "MoltenTemple", "Dungeon", "Eerie", "UndergroundEerie", "Jungle", "UndergroundJungle",
+                "Snow", "UndergroundSnow", "CorruptionDay", "CorruptionUndergroundDay", "CorruptionNight",
+                "UndergroundCorruptionNight", "Crimson", "MetroidUndergroundDepths", "UnderworldNight",
+                "Space", "Mushrooms", "UndergroundMushrooms", "UndergroundHallowOld", "Catacombs", "Rain",
+                "JungleRain", "Pillars", "ForgottenCity", "WyvernMageFortress", "JungleVillage", "Caverns",
+                "SkyTemple", "WaterTemple", "Tomb", "Ending", "OldOnesTree", "DarkTower", "Witchlands",
+                "Eternia", "GoblinInvasion", "Invader", "SlugBattle", "Gwyn", "God-DevouringSerpent",
+                "Boss1", "Boss2", "Boss3", "Boss4", "Boss5", "Boss6", "Boss7", "Boss8", "Boss9", "Boss10",
+                "Boss11", "Boss12", "Boss13", "Boss14", "Boss15", "Boss16", "Boss17", "Boss18", "Boss19",
+                "Boss22", "Boss23", "Boss24", "Cavern"
+            };
+
+            foreach (string track in trackNames)
+            {
+                try
                 {
-                    Main.music[titleMusicIndex].Stop(Microsoft.Xna.Framework.Audio.AudioStopOptions.Immediate);
+                    int slot = MusicLoader.GetMusicSlot(this, "Sounds/Music/" + track);
+                    if (slot >= 0)
+                    {
+                        RegisteredTracks[slot] = track;
+                    }
+                }
+                catch
+                {
                 }
             }
-            if (rainMusicIndex >= 0 && rainMusicIndex < Main.music.Length)
-            {
-                if (Main.music[rainMusicIndex].IsPlaying)
-                {
-                    Main.music[rainMusicIndex].Stop(Microsoft.Xna.Framework.Audio.AudioStopOptions.Immediate);
-                }
-            }
-            base.Close();*/
         }
     }
     public class tsorcMusicMenu : ModMenu
@@ -115,9 +132,10 @@ namespace tsorcMusic
             Texture2D logoTexture = Logo.Value;
             float maxLogoWidth = Main.screenWidth * 0.58f;
             float maxLogoHeight = Main.screenHeight * 0.42f;
-            logoScale = MathHelper.Min(maxLogoWidth / logoTexture.Width, maxLogoHeight / logoTexture.Height);
+            logoScale = MathHelper.Min(maxLogoWidth / logoTexture.Width, maxLogoHeight / logoTexture.Height) * 0.8f;
             logoRotation = 0f;
             logoDrawCenter = new Vector2(Main.screenWidth * 0.5f, Main.screenHeight * 0.18f);
+            drawColor = Color.White;
 
             return true;
         }
@@ -152,10 +170,11 @@ namespace tsorcMusic
         }
     }
 
-   
-
     public class tsorcMusicScene : ModSceneEffect
     {
+        public static int DebugLastMusicSlot { get; internal set; } = 0;
+        public static SceneEffectPriority DebugLastPriority { get; internal set; } = SceneEffectPriority.None;
+
         private ulong cachedSelectionTick = ulong.MaxValue;
         private Tuple<int, SceneEffectPriority> cachedSelection = new Tuple<int, SceneEffectPriority>(0, SceneEffectPriority.None);
         private int catacombsDeepMusic = -1;
@@ -961,8 +980,8 @@ namespace tsorcMusic
                         Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/GoblinInvasion");
                         Priority = SceneEffectPriority.BossMedium;
                     }
-                    // Pirate Invasion (212 Pirate Deckhand, 216 Pirate Captain, 491 Flying Dutchman)
-                    if (NPC.AnyNPCs(212) || NPC.AnyNPCs(216) || NPC.AnyNPCs(491))
+                    // Pirate Invasion (213 Pirate Deckhand, 216 Pirate Captain, 491 Flying Dutchman)
+                    if (NPC.AnyNPCs(213) || NPC.AnyNPCs(216) || NPC.AnyNPCs(491))
                     {
                         Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/Boss4");
                         Priority = SceneEffectPriority.BossMedium;
@@ -973,8 +992,8 @@ namespace tsorcMusic
                         Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/Boss10");
                         Priority = SceneEffectPriority.BossMedium;
                     }
-                    // Frost Moon (159 Everscream, 160 Santa-NK1, 161 Ice Queen)
-                    if (NPC.AnyNPCs(159) || NPC.AnyNPCs(160) || NPC.AnyNPCs(161))
+                    // Frost Moon (344 Everscream, 345 Santa-NK1, 346 Ice Queen)
+                    if (NPC.AnyNPCs(344) || NPC.AnyNPCs(345) || NPC.AnyNPCs(346))
                     {
                         Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/Boss4");
                         Priority = SceneEffectPriority.BossMedium;
@@ -1288,10 +1307,73 @@ namespace tsorcMusic
                 Priority = SceneEffectPriority.BiomeMedium;
             }
 
+            DebugLastMusicSlot = Music;
+            DebugLastPriority = Priority;
+
             // Priority only decides competition with other scene effects; rule order above decides which tsorcMusic track wins.
             // Use the maximum priority so vanilla scene effects do not seep through this always-active replacement scene.
             Priority = SceneEffectPriority.BossHigh;
             return new Tuple<int, SceneEffectPriority>(Music, Priority);
         }        
+    }
+
+    public class tsorcMusicDebugSystem : ModSystem
+    {
+        public override void PostDrawInterface(SpriteBatch spriteBatch)
+        {
+            if (Main.gameMenu || !ModContent.GetInstance<tsorcMusicConfig>().Debug)
+                return;
+
+            Player player = Main.LocalPlayer;
+            if (player == null || !player.active)
+                return;
+
+            int playerX = (int)(player.Center.X / 16f);
+            int playerY = (int)(player.Center.Y / 16f);
+
+            int playingSlot = Main.curMusic;
+            string playingTrackName = tsorcMusic.GetTrackName(playingSlot);
+
+            int targetSlot = tsorcMusicScene.DebugLastMusicSlot;
+            string targetTrackName = tsorcMusic.GetTrackName(targetSlot);
+
+            List<string> activeZones = new List<string>();
+            if (player.ZoneOverworldHeight) activeZones.Add("Overworld");
+            if (player.ZoneDirtLayerHeight) activeZones.Add("DirtLayer");
+            if (player.ZoneRockLayerHeight) activeZones.Add("RockLayer");
+            if (player.ZoneUnderworldHeight) activeZones.Add("Underworld");
+            if (player.ZoneSkyHeight) activeZones.Add("Space");
+            if (player.ZoneForest) activeZones.Add("Forest");
+            if (player.ZoneDesert) activeZones.Add("Desert");
+            if (player.ZoneUndergroundDesert) activeZones.Add("UndergroundDesert");
+            if (player.ZoneSnow) activeZones.Add("Snow");
+            if (player.ZoneJungle) activeZones.Add("Jungle");
+            if (player.ZoneBeach) activeZones.Add("Beach");
+            if (player.ZoneDungeon) activeZones.Add("Dungeon");
+            if (player.ZoneHallow) activeZones.Add("Hallow");
+            if (player.ZoneCorrupt) activeZones.Add("Corruption");
+            if (player.ZoneCrimson) activeZones.Add("Crimson");
+            if (player.ZoneGlowshroom) activeZones.Add("Mushroom");
+            if (player.ZoneMeteor) activeZones.Add("Meteor");
+            if (player.ZoneGraveyard) activeZones.Add("Graveyard");
+            if (player.ZoneRain) activeZones.Add("Rain");
+            if (player.ZoneSandstorm) activeZones.Add("Sandstorm");
+            if (player.ZoneOldOneArmy) activeZones.Add("OldOneArmy");
+
+            string zoneString = activeZones.Count > 0 ? string.Join(", ", activeZones) : "None";
+
+            string debugText = $"[TSORC Music Debug]\n" +
+                               $"Playing Track: {playingTrackName} (Slot {playingSlot})\n" +
+                               $"Target Track: {targetTrackName} (Slot {targetSlot})\n" +
+                               $"Selected Priority: {tsorcMusicScene.DebugLastPriority}\n" +
+                               $"Tile Coords: ({playerX}, {playerY})\n" +
+                               $"Active Biomes: {zoneString}";
+
+            Vector2 position = new Vector2(20, Main.screenHeight - 165);
+            Vector2 textSize = FontAssets.MouseText.Value.MeasureString(debugText);
+
+            spriteBatch.Draw(TextureAssets.MagicPixel.Value, new Rectangle((int)position.X - 8, (int)position.Y - 8, (int)textSize.X + 16, (int)textSize.Y + 16), Color.Black * 0.75f);
+            ChatManager.DrawColorCodedStringWithShadow(spriteBatch, FontAssets.MouseText.Value, debugText, position, Color.Cyan, 0f, Vector2.Zero, Vector2.One);
+        }
     }
 }
