@@ -227,6 +227,11 @@ namespace tsorcMusic
             return false;
         }
 
+        private static bool IsTsorcNpcActive(Mod tsorcRevamp, string internalName)
+        {
+            return tsorcRevamp.TryFind<ModNPC>(internalName, out ModNPC npc) && NPC.AnyNPCs(npc.Type);
+        }
+
         private static bool IsTsorcRevampInvaderType(Type type)
         {
             while (type != null)
@@ -1031,14 +1036,14 @@ namespace tsorcMusic
                         }
 
                         // Abyssal Ninja Invader
-                        if (NPC.AnyNPCs(tsorcRevamp.Find<ModNPC>("AbyssalNinjaInvader").Type))
+                        if (IsTsorcNpcActive(tsorcRevamp, "AbyssalNinjaInvader"))
                         {
                             Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/Boss24");
                             Priority = SceneEffectPriority.BossMedium;
                         }
 
                         // Studded Leather Warrior
-                        if (NPC.AnyNPCs(tsorcRevamp.Find<ModNPC>("StuddedLeatherWarrior").Type))
+                        if (IsTsorcNpcActive(tsorcRevamp, "StuddedLeatherWarrior"))
                         {
                             Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/Boss22");
                             Priority = SceneEffectPriority.BossMedium;
