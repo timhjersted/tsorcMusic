@@ -766,7 +766,7 @@ namespace tsorcMusic
                     }
 
                     // Dark Tower coordinate rectangle.
-                    if (playerX > 1310 && playerX < 1460 && playerY > 354 && playerY < 864)
+                    if (playerX > 1310 && playerX < 1460 && playerY > 354 && playerY < 1076)
                     {
                         Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/DarkTower");
                         Priority = SceneEffectPriority.BossLow; //Set priority
@@ -1035,8 +1035,8 @@ namespace tsorcMusic
                             Priority = SceneEffectPriority.BossMedium;
                         }
 
-                        // Abyssal Ninja Invader
-                        if (IsTsorcNpcActive(tsorcRevamp, "AbyssalNinjaInvader"))
+                        // Abyssal Ninja
+                        if (IsTsorcNpcActive(tsorcRevamp, "AbyssalNinja"))
                         {
                             Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/Boss24");
                             Priority = SceneEffectPriority.BossMedium;
@@ -1051,140 +1051,140 @@ namespace tsorcMusic
 
                         // Red Cloud Boss Music
                         // Pinwheel
-                        if (NPC.AnyNPCs(tsorcRevamp.Find<ModNPC>("Pinwheel").Type))
+                        if (IsTsorcNpcActive(tsorcRevamp, "Pinwheel"))
                         {
                             Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/Boss18");
                             Priority = SceneEffectPriority.BossMedium;
                         }                      
 
                         // The Machine
-                        if (NPC.AnyNPCs(tsorcRevamp.Find<ModNPC>("TheMachine").Type))
+                        if (IsTsorcNpcActive(tsorcRevamp, "TheMachine"))
                         {
                             Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/Boss11");
                             Priority = SceneEffectPriority.BossMedium;
                         }  
                         
                         // Red Knight 
-                        if (NPC.AnyNPCs(tsorcRevamp.Find<ModNPC>("RedKnight").Type))
+                        if (IsTsorcNpcActive(tsorcRevamp, "RedKnight"))
                         {
                             Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/Sandstorm");
                             Priority = SceneEffectPriority.BossLow;
                         }
 
                         // Great Red Knight 
-                        if (NPC.AnyNPCs(tsorcRevamp.Find<ModNPC>("GreatRedKnight").Type))
+                        if (IsTsorcNpcActive(tsorcRevamp, "GreatRedKnight"))
                         {
                             Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/Boss13");
                             Priority = SceneEffectPriority.BossMedium;
                         }
 
                         // Black Knight
-                        if (NPC.AnyNPCs(tsorcRevamp.Find<ModNPC>("BlackKnight").Type))
+                        if (IsTsorcNpcActive(tsorcRevamp, "BlackKnight"))
                         {
                             Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/Boss15");
                             Priority = SceneEffectPriority.BossMedium;
                         }
 
                         // Leonhard Phase 1
-                        if (NPC.AnyNPCs(tsorcRevamp.Find<ModNPC>("LeonhardPhase1").Type))
+                        if (IsTsorcNpcActive(tsorcRevamp, "LeonhardPhase1"))
                         {
                             Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/Invader");
                             Priority = SceneEffectPriority.BossMedium;
                         }
 
                         // Lothric Black Knight
-                        if (NPC.AnyNPCs(tsorcRevamp.Find<ModNPC>("LothricBlackKnight").Type))
+                        if (IsTsorcNpcActive(tsorcRevamp, "LothricBlackKnight"))
                         {
                             Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/Invader");
                             Priority = SceneEffectPriority.BossMedium;
                         }
 
                         // Ancient Demons
-                        if (NPC.AnyNPCs(tsorcRevamp.Find<ModNPC>("AncientOolacileDemon").Type) || NPC.AnyNPCs(tsorcRevamp.Find<ModNPC>("AncientDemonOfTheAbyss").Type) || NPC.AnyNPCs(tsorcRevamp.Find<ModNPC>("AncientDemon").Type))
+                        if (IsTsorcNpcActive(tsorcRevamp, "AncientOolacileDemon") || IsTsorcNpcActive(tsorcRevamp, "AncientDemonOfTheAbyss") || IsTsorcNpcActive(tsorcRevamp, "AncientDemon"))
                         {
                             Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/Boss15");
                             Priority = SceneEffectPriority.BossMedium;
                         }
 
                         // Hero of Lumelia
-                        if (NPC.AnyNPCs(tsorcRevamp.Find<ModNPC>("HeroofLumelia").Type))
+                        if (IsTsorcNpcActive(tsorcRevamp, "HeroofLumelia"))
                         {
                             Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/Boss2");
                             Priority = SceneEffectPriority.BossMedium;
                         }
 
                         // Jungle Wyvern
-                        if (NPC.AnyNPCs(tsorcRevamp.Find<ModNPC>("JungleWyvernHead").Type))
+                        if (IsTsorcNpcActive(tsorcRevamp, "JungleWyvernHead"))
                         {
                             Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/Boss10");
                             Priority = SceneEffectPriority.BossMedium;
                         }
 
                         // The Rage
-                        if (NPC.AnyNPCs(tsorcRevamp.Find<ModNPC>("TheRage").Type))
+                        if (IsTsorcNpcActive(tsorcRevamp, "TheRage"))
                         {
                             Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/Boss7");
                             Priority = SceneEffectPriority.BossMedium;
                         }
 
                         // The Sorrow
-                        if (NPC.AnyNPCs(tsorcRevamp.Find<ModNPC>("TheSorrow").Type))
+                        if (IsTsorcNpcActive(tsorcRevamp, "TheSorrow"))
                         {
                             Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/Boss12");
                             Priority = SceneEffectPriority.BossMedium;
                         }
 
                         // The Hunter
-                        if (NPC.AnyNPCs(tsorcRevamp.Find<ModNPC>("TheHunter").Type))
+                        if (IsTsorcNpcActive(tsorcRevamp, "TheHunter"))
                         {
                             Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/Boss10");
                             Priority = SceneEffectPriority.BossMedium;
                         }
 
                         // The Triad
-                        if (NPC.AnyNPCs(tsorcRevamp.Find<ModNPC>("Cataluminance").Type) || NPC.AnyNPCs(tsorcRevamp.Find<ModNPC>("RetinazerV2").Type) || NPC.AnyNPCs(tsorcRevamp.Find<ModNPC>("SpazmatismV2").Type))
+                        if (IsTsorcNpcActive(tsorcRevamp, "Cataluminance") || IsTsorcNpcActive(tsorcRevamp, "RetinazerV2") || IsTsorcNpcActive(tsorcRevamp, "SpazmatismV2"))
                         {
                             Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/Boss8"); // trying boss 8 instead of 9 since 8 is only used 1 other time and it's too good to only hear once
                             Priority = SceneEffectPriority.BossMedium;
                         }
 
                         // Artorias
-                        if (NPC.AnyNPCs(tsorcRevamp.Find<ModNPC>("Artorias").Type))
+                        if (IsTsorcNpcActive(tsorcRevamp, "Artorias"))
                         {
                             Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/Boss6");
                             Priority = SceneEffectPriority.BossMedium;
                         }
 
                         // Witchking
-                        if (NPC.AnyNPCs(tsorcRevamp.Find<ModNPC>("Witchking").Type))
+                        if (IsTsorcNpcActive(tsorcRevamp, "Witchking"))
                         {
                             Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/Boss14");
                             Priority = SceneEffectPriority.BossMedium;
                         }
 
                         // Blight
-                        if (NPC.AnyNPCs(tsorcRevamp.Find<ModNPC>("Blight").Type))
+                        if (IsTsorcNpcActive(tsorcRevamp, "Blight"))
                         {
                             Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/Pillars");
                             Priority = SceneEffectPriority.BossMedium;
                         }
 
                         // Wyvern Mage and Mecha Dragon
-                        if (NPC.AnyNPCs(tsorcRevamp.Find<ModNPC>("WyvernMage").Type) || NPC.AnyNPCs(tsorcRevamp.Find<ModNPC>("MechaDragonHead").Type))
+                        if (IsTsorcNpcActive(tsorcRevamp, "WyvernMage") || IsTsorcNpcActive(tsorcRevamp, "MechaDragonHead"))
                         {
                             Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/Boss12");
                             Priority = SceneEffectPriority.BossMedium;
                         }
 
                         // Gaibon and Slogra
-                        if (NPC.AnyNPCs(tsorcRevamp.Find<ModNPC>("Gaibon").Type) || NPC.AnyNPCs(tsorcRevamp.Find<ModNPC>("Slogra").Type))
+                        if (IsTsorcNpcActive(tsorcRevamp, "Gaibon") || IsTsorcNpcActive(tsorcRevamp, "Slogra"))
                         {
                             Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/Boss7");
                             Priority = SceneEffectPriority.BossMedium;
                         }
 
                         // Serris and Serris X
-                        if (NPC.AnyNPCs(tsorcRevamp.Find<ModNPC>("SerrisHead").Type) || NPC.AnyNPCs(tsorcRevamp.Find<ModNPC>("SerrisX").Type))
+                        if (IsTsorcNpcActive(tsorcRevamp, "SerrisHead") || IsTsorcNpcActive(tsorcRevamp, "SerrisX"))
                         {
                             Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/Boss19");
                             Priority = SceneEffectPriority.BossMedium;
@@ -1193,109 +1193,109 @@ namespace tsorcMusic
                         // Fiends
 
                         // Earth Fiend Lich and Lich King serpent.
-                        if (NPC.AnyNPCs(tsorcRevamp.Find<ModNPC>("EarthFiendLich").Type) || NPC.AnyNPCs(tsorcRevamp.Find<ModNPC>("LichKingSerpentHead").Type))
+                        if (IsTsorcNpcActive(tsorcRevamp, "EarthFiendLich") || IsTsorcNpcActive(tsorcRevamp, "LichKingSerpentHead"))
                         {
                             Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/Boss16");
                             Priority = SceneEffectPriority.BossMedium;
                         }
 
                         // Fire Fiend Marilith
-                        if (NPC.AnyNPCs(tsorcRevamp.Find<ModNPC>("FireFiendMarilith").Type))
+                        if (IsTsorcNpcActive(tsorcRevamp, "FireFiendMarilith"))
                         {
                             Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/Boss16");
                             Priority = SceneEffectPriority.BossMedium;
                         }
 
                         // Water Fiend Kraken
-                        if (NPC.AnyNPCs(tsorcRevamp.Find<ModNPC>("WaterFiendKraken").Type))
+                        if (IsTsorcNpcActive(tsorcRevamp, "WaterFiendKraken"))
                         {
                             Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/Boss12");
                             Priority = SceneEffectPriority.BossMedium;
                         }
 
                         // Chaos
-                        if (NPC.AnyNPCs(tsorcRevamp.Find<ModNPC>("Chaos").Type))
+                        if (IsTsorcNpcActive(tsorcRevamp, "Chaos"))
                         {
                             Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/Boss14");
                             Priority = SceneEffectPriority.BossMedium;
                         }
 
                         // Dark Cloud
-                        if (NPC.AnyNPCs(tsorcRevamp.Find<ModNPC>("DarkCloud").Type))
+                        if (IsTsorcNpcActive(tsorcRevamp, "DarkCloud"))
                         {
                             Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/Boss11");
                             Priority = SceneEffectPriority.BossMedium;
                         }
 
                         // Death
-                        if (NPC.AnyNPCs(tsorcRevamp.Find<ModNPC>("Death").Type))
+                        if (IsTsorcNpcActive(tsorcRevamp, "Death"))
                         {
                             Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/Boss13");
                             Priority = SceneEffectPriority.BossMedium;
                         }
 
                         // Wyvern Mage Shadow and Ghost Dragon
-                        if (NPC.AnyNPCs(tsorcRevamp.Find<ModNPC>("WyvernMageShadow").Type) || NPC.AnyNPCs(tsorcRevamp.Find<ModNPC>("GhostDragonHead").Type))
+                        if (IsTsorcNpcActive(tsorcRevamp, "WyvernMageShadow") || IsTsorcNpcActive(tsorcRevamp, "GhostDragonHead"))
                         {
                             Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/God-DevouringSerpent");
                             Priority = SceneEffectPriority.BossMedium;
                         }
 
                         // Hellkite Dragon
-                        if (NPC.AnyNPCs(tsorcRevamp.Find<ModNPC>("HellkiteDragonHead").Type))
+                        if (IsTsorcNpcActive(tsorcRevamp, "HellkiteDragonHead"))
                         {
                             Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/God-DevouringSerpent");
                             Priority = SceneEffectPriority.BossMedium;
                         }
 
                         // Seath the Scaleless and Primordial Crystal
-                        if (NPC.AnyNPCs(tsorcRevamp.Find<ModNPC>("SeathTheScalelessHead").Type) || NPC.AnyNPCs(tsorcRevamp.Find<ModNPC>("PrimordialCrystal").Type))
+                        if (IsTsorcNpcActive(tsorcRevamp, "SeathTheScalelessHead") || IsTsorcNpcActive(tsorcRevamp, "PrimordialCrystal"))
                         {
                             Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/Boss9");
                             Priority = SceneEffectPriority.BossMedium;
                         }
 
                         // Abysmal Oolacile Sorcerer
-                        if (NPC.AnyNPCs(tsorcRevamp.Find<ModNPC>("AbysmalOolacileSorcerer").Type))
+                        if (IsTsorcNpcActive(tsorcRevamp, "AbysmalOolacileSorcerer"))
                         {
                             Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/Boss14");
                             Priority = SceneEffectPriority.BossMedium;
                         }
 
                         // Gwyn
-                        if (NPC.AnyNPCs(tsorcRevamp.Find<ModNPC>("Gwyn").Type))
+                        if (IsTsorcNpcActive(tsorcRevamp, "Gwyn"))
                         {
                             Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/Gwyn");
                             Priority = SceneEffectPriority.BossMedium;
                         }
 
                         // Attraidies phases
-                        if (NPC.AnyNPCs(tsorcRevamp.Find<ModNPC>("DarkShogunMask").Type)) //phase 1
+                        if (IsTsorcNpcActive(tsorcRevamp, "DarkShogunMask")) //phase 1
                         {
                             Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/Boss5");
                             Priority = SceneEffectPriority.BossHigh;
                         }
-                        else if (NPC.AnyNPCs(tsorcRevamp.Find<ModNPC>("DarkDragonMask").Type)) //phase 2
+                        else if (IsTsorcNpcActive(tsorcRevamp, "DarkDragonMask")) //phase 2
                         {
                             Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/Boss5");
                             Priority = SceneEffectPriority.BossMedium;
                         }
-                        else if (NPC.AnyNPCs(tsorcRevamp.Find<ModNPC>("Okiku").Type)) //phase 3a
+                        else if (IsTsorcNpcActive(tsorcRevamp, "Okiku")) //phase 3a
                         {
                             Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/Boss5");
                             Priority = SceneEffectPriority.BossMedium;
                         }
-                        else if (NPC.AnyNPCs(tsorcRevamp.Find<ModNPC>("BrokenOkiku").Type)) //phase 3b
+                        else if (IsTsorcNpcActive(tsorcRevamp, "BrokenOkiku")) //phase 3b
                         {
                             Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/Boss5");
                             Priority = SceneEffectPriority.BossMedium;
                         }
-                        if (NPC.AnyNPCs(tsorcRevamp.Find<ModNPC>("AttraidiesMimic").Type)) //phase 4a
+                        if (IsTsorcNpcActive(tsorcRevamp, "AttraidiesMimic")) //phase 4a
                         {
                             Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/Boss8");
                             Priority = SceneEffectPriority.BossMedium;
                         }
-                        else if (NPC.AnyNPCs(tsorcRevamp.Find<ModNPC>("Attraidies").Type)) //phase 4b
+                        else if (IsTsorcNpcActive(tsorcRevamp, "Attraidies")) //phase 4b
                         {
                             Music = MusicLoader.GetMusicSlot(tsorcMusic.instance, "Sounds/Music/Boss8");
                             Priority = SceneEffectPriority.BossMedium;
